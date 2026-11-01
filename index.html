@@ -2,13 +2,13 @@
 <html lang="zh-CN">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>寻找人群</title></head>
 <body><main id="app">
-  <header class="game-header"><div class="level-status"><h1 id="level-name">第一关</h1><div id="progress" role="progressbar" aria-label="关卡进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div></div><strong id="timer" aria-label="本关用时">00:00.0</strong></header>
+  <header class="game-header"><div class="level-status"><h1 id="level-name">第一关</h1><div id="progress" role="progressbar" aria-label="剩余时间" aria-valuemin="0" aria-valuemax="30" aria-valuenow="30"><i></i></div></div><strong id="timer" aria-label="剩余时间">00:30.0</strong></header>
   <div id="game" aria-label="寻找人物区域"></div>
   <div id="opening" hidden aria-live="polite"><div class="opening-copy"><strong></strong><small></small></div></div>
   <p id="feedback" role="status" aria-live="polite">寻找下方的朋友</p>
   <section class="targets"><div class="target-heading"><strong>寻找这些朋友</strong><span id="batch">开始寻找</span></div><div id="targets" aria-label="当前目标"></div></section>
   <section id="result" role="dialog" aria-modal="true" aria-labelledby="result-title" hidden>
     <div id="confetti" aria-hidden="true"></div>
-    <div class="result-card"><div class="victory-star" aria-hidden="true">★</div><h2 id="result-title">CONGRATULATIONS!</h2><p class="result-subtitle">LEVEL COMPLETE!</p><p class="time-caption">本关用时 · 含错误加时</p><strong id="result-time"></strong><section id="leaderboard" hidden><h3>模拟排行榜 · 非真实玩家数据</h3><ol id="ranking"></ol></section><button id="result-action">NEXT LEVEL</button></div>
+    <div class="result-card"><div class="victory-star" aria-hidden="true">★</div><h2 id="result-title">CONGRATULATIONS!</h2><p class="result-subtitle">LEVEL COMPLETE!</p><p class="time-caption">剩余时间</p><strong id="result-time"></strong><section id="leaderboard" hidden><h3>模拟排行榜 · 非真实玩家数据</h3><ol id="ranking"></ol></section><button id="result-action">NEXT LEVEL</button></div>
   </section>
-</main><script type="module" src="/src/main.js"></script></body></html>
+</main><div id="effects" aria-hidden="true"></div><script type="module" src="/src/main.js"></script></body></html>

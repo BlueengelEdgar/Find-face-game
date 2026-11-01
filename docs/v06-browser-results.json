@@ -1,0 +1,169 @@
+{
+  "correctPicks": 370,
+  "cases": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "detail": true
+      },
+      "index": 0,
+      "count": 5,
+      "head": 0.9046461897356143,
+      "features": 0.9896907216494846,
+      "dims": {
+        "width": 370,
+        "height": 592
+      },
+      "transitions": 0,
+      "occupancy": 0.6004351809436556
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "detail": true
+      },
+      "index": 1,
+      "count": 75,
+      "head": 0.8748293644774761,
+      "features": 0.9690721649484536,
+      "dims": {
+        "width": 370,
+        "height": 592
+      },
+      "transitions": 14,
+      "occupancy": 0.9121621621621622
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "index": 0,
+      "count": 5,
+      "head": 0.9780536268446787,
+      "features": 0.9997020558148774,
+      "dims": {
+        "width": 300,
+        "height": 373
+      },
+      "transitions": 0,
+      "occupancy": 0.6430180180180181
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "index": 1,
+      "count": 45,
+      "head": 0.8811625148279952,
+      "features": 0.9692704203013481,
+      "dims": {
+        "width": 300,
+        "height": 373
+      },
+      "transitions": 8,
+      "occupancy": 0.818018018018018
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "index": 0,
+      "count": 5,
+      "head": 0.9145120528771384,
+      "features": 1,
+      "dims": {
+        "width": 460,
+        "height": 770
+      },
+      "transitions": 0,
+      "occupancy": 0.5910502540937324
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "index": 1,
+      "count": 75,
+      "head": 0.8868646662584201,
+      "features": 0.9867168913560667,
+      "dims": {
+        "width": 460,
+        "height": 770
+      },
+      "transitions": 14,
+      "occupancy": 0.9048560135516657
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "index": 0,
+      "count": 5,
+      "head": 0.9145120528771384,
+      "features": 1,
+      "dims": {
+        "width": 317,
+        "height": 525
+      },
+      "transitions": 0,
+      "occupancy": 0.5931972789115646
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "index": 1,
+      "count": 75,
+      "head": 0.8855035643864705,
+      "features": 0.9834456780333068,
+      "dims": {
+        "width": 317,
+        "height": 525
+      },
+      "transitions": 14,
+      "occupancy": 0.90854119425548
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000,
+        "offline": true
+      },
+      "index": 0,
+      "count": 5,
+      "head": 0.9096034214618973,
+      "features": 1,
+      "dims": {
+        "width": 460,
+        "height": 746
+      },
+      "transitions": 0,
+      "occupancy": 0.5990662386927341
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000,
+        "offline": true
+      },
+      "index": 1,
+      "count": 75,
+      "head": 0.8787919005005309,
+      "features": 0.9759119746233148,
+      "dims": {
+        "width": 460,
+        "height": 746
+      },
+      "transitions": 14,
+      "occupancy": 0.911219725707616
+    }
+  ]
+}

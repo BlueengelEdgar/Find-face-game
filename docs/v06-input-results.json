@@ -1,0 +1,37 @@
+{
+  "correctPicks": 50,
+  "cases": [
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "index": 0,
+      "count": 5,
+      "head": 0.9780536268446787,
+      "features": 0.9997020558148774,
+      "dims": {
+        "width": 300,
+        "height": 373
+      },
+      "transitions": 0,
+      "occupancy": 0.6430180180180181
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "index": 1,
+      "count": 45,
+      "head": 0.8811625148279952,
+      "features": 0.9692704203013481,
+      "dims": {
+        "width": 300,
+        "height": 373
+      },
+      "transitions": 8,
+      "occupancy": 0.818018018018018
+    }
+  ]
+}

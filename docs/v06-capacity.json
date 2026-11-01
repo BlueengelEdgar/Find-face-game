@@ -1,0 +1,155 @@
+[
+  {
+    "wall": [
+      370,
+      592
+    ],
+    "requestedPopulation": 150,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 0,
+    "minPortraitWidth": 64.75,
+    "estimateOnly": false,
+    "requiredVisibleAreaRatio": {
+      "0": 0.9922838971644272,
+      "0.06": 1.1223499178003382,
+      "0.1": 1.2033509756017613,
+      "0.18": 1.3802886009216309
+    }
+  },
+  {
+    "wall": [
+      370,
+      592
+    ],
+    "requestedPopulation": 180,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 30,
+    "minPortraitWidth": 64.75,
+    "estimateOnly": true,
+    "requiredVisibleAreaRatio": {
+      "0": 1.1173182576968346,
+      "0.06": 1.2643611293368868,
+      "0.1": 1.3554776834558557,
+      "0.18": 1.5591722382439508
+    }
+  },
+  {
+    "wall": [
+      370,
+      592
+    ],
+    "requestedPopulation": 200,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 50,
+    "minPortraitWidth": 64.75,
+    "estimateOnly": true,
+    "requiredVisibleAreaRatio": {
+      "0": 1.200674498051773,
+      "0.06": 1.3590352703612527,
+      "0.1": 1.4568954886919188,
+      "0.18": 1.6784279964588305
+    }
+  },
+  {
+    "wall": [
+      300,
+      373
+    ],
+    "requestedPopulation": 150,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 0,
+    "minPortraitWidth": 52.5,
+    "estimateOnly": false,
+    "requiredVisibleAreaRatio": {
+      "0": 1.2769337014448392,
+      "0.06": 1.4443108861773786,
+      "0.1": 1.5485481723561536,
+      "0.18": 1.7762427035988813
+    }
+  },
+  {
+    "wall": [
+      300,
+      373
+    ],
+    "requestedPopulation": 180,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 30,
+    "minPortraitWidth": 52.5,
+    "estimateOnly": true,
+    "requiredVisibleAreaRatio": {
+      "0": 1.4378358275991434,
+      "0.06": 1.6270598983423743,
+      "0.1": 1.7443144451978838,
+      "0.18": 2.006441486212054
+    }
+  },
+  {
+    "wall": [
+      300,
+      373
+    ],
+    "requestedPopulation": 200,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 50,
+    "minPortraitWidth": 52.5,
+    "estimateOnly": true,
+    "requiredVisibleAreaRatio": {
+      "0": 1.5451039117020129,
+      "0.06": 1.748892573119038,
+      "0.1": 1.8748252937590368,
+      "0.18": 2.1599073412875027
+    }
+  },
+  {
+    "wall": [
+      460,
+      742
+    ],
+    "requestedPopulation": 150,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 0,
+    "minPortraitWidth": 80.5,
+    "estimateOnly": false,
+    "requiredVisibleAreaRatio": {
+      "0": 0.9842600381577068,
+      "0.06": 1.113274311996023,
+      "0.1": 1.1936203747208847,
+      "0.18": 1.3691272375718602
+    }
+  },
+  {
+    "wall": [
+      460,
+      742
+    ],
+    "requestedPopulation": 180,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 30,
+    "minPortraitWidth": 80.5,
+    "estimateOnly": true,
+    "requiredVisibleAreaRatio": {
+      "0": 1.1082833391709843,
+      "0.06": 1.2541371848948097,
+      "0.1": 1.3445169474710372,
+      "0.18": 1.5465643764791748
+    }
+  },
+  {
+    "wall": [
+      460,
+      742
+    ],
+    "requestedPopulation": 200,
+    "availableUniqueArt": 150,
+    "missingUniqueArt": 50,
+    "minPortraitWidth": 80.5,
+    "estimateOnly": true,
+    "requiredVisibleAreaRatio": {
+      "0": 1.1909655398465024,
+      "0.06": 1.3480457668273345,
+      "0.1": 1.445114662637806,
+      "0.18": 1.6648558024173847
+    }
+  }
+]

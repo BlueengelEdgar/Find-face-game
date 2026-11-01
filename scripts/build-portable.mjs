@@ -17,5 +17,5 @@ html=html.replace('</body>',()=>`<script>globalThis.__CROWD_ASSETS__=${JSON.stri
 const embedded=html.match(/<script type="module">([\s\S]*?)<\/script>/)?.[1];
 if(embedded!==code)throw new Error('Portable script was changed during HTML injection');
 new Function(code); // Parse only, do not execute browser code in Node.
-writeFileSync('dist/find-crowd-v05.html',html);
+writeFileSync('dist/find-crowd-v06.html',html);
 console.log('Portable offline game:',Math.round(Buffer.byteLength(html)/1024),'KiB; active artwork, backgrounds and scripts embedded');

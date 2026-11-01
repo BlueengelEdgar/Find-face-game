@@ -52,3 +52,17 @@ npm run build
 - 系统 Chromium：四种视口全部完成两关，共 640 次正确点击；错误点击、暂停计时、暂停输入阻断、重开和结果显示均通过，无页面 JavaScript 异常。
 - `git diff --check`：通过。
 - 已修复浏览器测试发现的 Phaser SVG 数据 URI 编码错误。
+
+## GitHub Pages 自动部署
+部署配置位于 `.github/workflows/deploy-pages.yml`；合并到 `main` 后，每次推送都会用 Node.js 24 执行 `npm ci`、`npm test`、`npm run build`，全部成功后上传 `dist` 并部署。也可在 Actions 中手动运行工作流。并发部署排队，避免同时发布。
+
+Vite 的 `base` 固定为 `/Find-face-game/`，适配本仓库的项目站点子路径（大小写一致）。本地开发也应打开开发服务器下的 `/Find-face-game/`。改名或使用自定义域名时，需要重新检查此配置。
+
+仓库管理员需手动完成以下设置，本配置不会修改仓库可见性或自动启用 Pages：
+1. 在 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
+2. 确认仓库允许 GitHub Actions 及工作流使用的官方 actions；若组织策略限制工作流令牌或 OIDC，需由管理员授权所声明的 `pages: write` 与 `id-token: write`。
+3. 检查 `github-pages` 环境的部署分支规则允许 `main`；如设置了审批，部署时由审核人批准。
+4. 若仓库为私有仓库，先确认账号或组织套餐支持私有仓库 Pages；不支持时由仓库所有者决定升级套餐等方案，不应自动将仓库公开。私有仓库的 Pages 站点访问范围也需由管理员确认，不能假定它自动为私有。
+5. 合并部署 PR 后查看 Actions 运行结果，并使用部署输出的实际 URL 验证页面、头像与两关交互。尚未执行远端 Pages 部署时，不代表站点已上线。
+
+此工作流只部署静态构建产物，不公开 Vite 开发服务器。真实 Pages 权限、组织策略和首次部署结果需在 GitHub 上确认。

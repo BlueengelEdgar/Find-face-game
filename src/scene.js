@@ -1,10 +1,11 @@
 import Phaser from 'phaser';
 import { CHARACTERS, characterUrl } from './characters.js';
-import { artLayout } from './art-layout.js';
+import { crowdLayout } from './art-layout.js';
 export class CrowdScene extends Phaser.Scene {
   constructor(controller) { super('crowd'); this.controller = controller; }
   preload() {
     for (const character of CHARACTERS) this.load.image('face-' + character.id, characterUrl(character.id));
+    this.load.on('progress', value => { document.querySelector('#feedback').textContent = '正在准备人物 '+Math.round(value*100)+'%'; });
     this.load.on('loaderror', () => {
       this.artLoadFailed = true;
       document.querySelector('#feedback').textContent = '人物资源加载失败，请刷新重试';
@@ -30,13 +31,14 @@ export class CrowdScene extends Phaser.Scene {
     this.scale.on('resize', () => this.controller.resize());
   }
   show(level) {
-    if (level.count !== CHARACTERS.length) throw new Error('This cast is awaiting visual approval');
     this.tweens.killAll();
-    this.children.removeAll(true);
+    // DisplayList.removeAll(true) only detaches children and leaves input alive.
+    // Destroy each object so old portraits cannot intercept taps after relayout.
+    this.children.getAll().forEach(child => child.destroy());
     const { width: WIDTH, height: HEIGHT } = this.scale.gameSize;
     this.cameras.main.setBackgroundColor('#f1dfbf');
     this.faces = new Map();
-    for (const point of artLayout(WIDTH, HEIGHT)) {
+    for (const point of crowdLayout(level, WIDTH, HEIGHT)) {
       const texture = this.textures.get('face-' + point.id).getSourceImage();
       const face = this.add.image(point.x, point.y, 'face-' + point.id)
         .setOrigin(0.5, CHARACTERS[point.id].face.y)

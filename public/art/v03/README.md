@@ -1,20 +1,9 @@
-# 第一阶段独立人物插画
+# V0.3 角色资源
 
-AI image-generation tool 生成的独立透明 PNG。非 SVG、非拼墙图、非外部热链。保留原始文件，不通过缩放图标或颜色换皮伪造身份。
+150 个独立透明 WebP 文件，稳定 ID 0～149，文件 character-001.webp … character-150.webp。页面不绘制编号。
 
-基础风格：polished Japanese 2D cozy crowd puzzle illustration, delicate warm brown linework, softly shaded natural skin, detailed expressive eyes, hair strands, textile folds, front-facing mid-chest bust, transparent background, no numbers/letters/logos. 其余人物以 character-001 作为统一风格参考逐人生成。
+美术方向由用户确认的漫画动画样图延展，使用细网点、墨线和色块阴影，生成提示要求更柔和的配色。墙体和目标栏同用一个文件，统一应用 CSS --art-saturation:.82；完成态额外变暗。
 
-| 文件 | 角色方向 |
-|---|---|
-| character-001.png | 栗发松散高发髻、米白卫衣、绿色背带的年轻女性 |
-| character-002.png | 深蓝米白棒球帽、短黑发、浅蓝外套年轻男性 |
-| character-003.png | 深棕肤色、浓密黑卷发、森林绿卫衣年轻男性 |
-| character-004.png | 红发双辫、雀斑、圆黑眼镜、鼠尾草绿开衫年轻女性 |
-| character-005.png | 金发波浪、蓝色针织帽、蓝针织衫年轻女性 |
-| character-006.png | 齐刘海黑短发、珊瑚发夹、粉色卫衣少女 |
-| character-007.png | 蓬松栗发、圆眼镜、黑色连帽衫年轻男性 |
-| character-008.png | 棕肤色双辫、红棒球帽、牛仔背带裤年轻女性 |
-| character-009.png | 赤褐卷发与络腮胡、芥黄卫衣中年男性 |
-| character-010.png | 银短发、细椭圆眼镜、淡紫开衫与围巾年长女性 |
+十张素材页每张提供 15 个独立角色，按相等 5×3 打包仅为提取用途，游戏从不把素材页或整张人群画当背景。scripts/extract-art.mjs 将每格分离为独立文件，清除位于主要人物包围盒之外的相邻格残片，保留源图比例与透明软边，输出 288×360 WebP（质量 90）。
 
-这些是第一阶段待审核素材，并非经人工验收的最终角色。角色 ID 与来源映射见仓库 docs/V03-ART-REVIEW.md 与 src/characters.js。
+原始页、150 人描述及导出坐标保存在 art-source/v03/。构建不调用 AI 服务或第三方图片服务器。换图后需重新检查面部锚点、遮挡数据与命中回归；唯一 ID 不应被重复映射到同一文件。

@@ -1,0 +1,2552 @@
+[
+  {
+    "id": 0,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 0,
+    "output": "public/art/v03/character-001.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "276x340+14+22",
+      "area": 64075
+    }
+  },
+  {
+    "id": 1,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 1,
+    "output": "public/art/v03/character-002.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "271x324+13+38",
+      "area": 65425
+    }
+  },
+  {
+    "id": 2,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 2,
+    "output": "public/art/v03/character-003.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "270x329+6+33",
+      "area": 63601
+    }
+  },
+  {
+    "id": 3,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 3,
+    "output": "public/art/v03/character-004.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "273x313+0+49",
+      "area": 64316
+    }
+  },
+  {
+    "id": 4,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 4,
+    "output": "public/art/v03/character-005.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x318+0+44",
+      "area": 65009
+    }
+  },
+  {
+    "id": 5,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 5,
+    "output": "public/art/v03/character-006.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "278x317+12+30",
+      "area": 71741
+    }
+  },
+  {
+    "id": 6,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 6,
+    "output": "public/art/v03/character-007.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "273x329+11+18",
+      "area": 67780
+    }
+  },
+  {
+    "id": 7,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 7,
+    "output": "public/art/v03/character-008.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "271x328+5+19",
+      "area": 68937
+    }
+  },
+  {
+    "id": 8,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 8,
+    "output": "public/art/v03/character-009.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "275x326+0+21",
+      "area": 65210
+    }
+  },
+  {
+    "id": 9,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 9,
+    "output": "public/art/v03/character-010.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "277x321+0+26",
+      "area": 65147
+    }
+  },
+  {
+    "id": 10,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 10,
+    "output": "public/art/v03/character-011.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "271x334+11+1",
+      "area": 64622
+    }
+  },
+  {
+    "id": 11,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 11,
+    "output": "public/art/v03/character-012.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "289x329+0+6",
+      "area": 81510
+    }
+  },
+  {
+    "id": 12,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 12,
+    "output": "public/art/v03/character-013.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "274x335+7+0",
+      "area": 61462
+    }
+  },
+  {
+    "id": 13,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 13,
+    "output": "public/art/v03/character-014.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "283x335+0+0",
+      "area": 78152
+    }
+  },
+  {
+    "id": 14,
+    "sheet": "art-source/v03/sheet-01.png",
+    "slot": 14,
+    "output": "public/art/v03/character-015.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "271x331+6+4",
+      "area": 69135
+    }
+  },
+  {
+    "id": 15,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 0,
+    "output": "public/art/v03/character-016.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x333+10+29",
+      "area": 64198
+    }
+  },
+  {
+    "id": 16,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 1,
+    "output": "public/art/v03/character-017.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x323+8+39",
+      "area": 71626
+    }
+  },
+  {
+    "id": 17,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 2,
+    "output": "public/art/v03/character-018.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "275x301+8+61",
+      "area": 60705
+    }
+  },
+  {
+    "id": 18,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 3,
+    "output": "public/art/v03/character-019.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x325+1+37",
+      "area": 59659
+    }
+  },
+  {
+    "id": 19,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 4,
+    "output": "public/art/v03/character-020.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x308+0+54",
+      "area": 70279
+    }
+  },
+  {
+    "id": 20,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 5,
+    "output": "public/art/v03/character-021.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "275x317+10+31",
+      "area": 56900
+    }
+  },
+  {
+    "id": 21,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 6,
+    "output": "public/art/v03/character-022.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "286x320+0+28",
+      "area": 74098
+    }
+  },
+  {
+    "id": 22,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 7,
+    "output": "public/art/v03/character-023.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "275x320+8+28",
+      "area": 65967
+    }
+  },
+  {
+    "id": 23,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 8,
+    "output": "public/art/v03/character-024.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "280x318+0+30",
+      "area": 72047
+    }
+  },
+  {
+    "id": 24,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 9,
+    "output": "public/art/v03/character-025.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "281x318+0+31",
+      "area": 70814
+    }
+  },
+  {
+    "id": 25,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 10,
+    "output": "public/art/v03/character-026.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x335+10+0",
+      "area": 77525
+    }
+  },
+  {
+    "id": 26,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 11,
+    "output": "public/art/v03/character-027.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x336+6+0",
+      "area": 67231
+    }
+  },
+  {
+    "id": 27,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 12,
+    "output": "public/art/v03/character-028.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "289x335+1+2",
+      "area": 78471
+    }
+  },
+  {
+    "id": 28,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 13,
+    "output": "public/art/v03/character-029.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x335+0+2",
+      "area": 69169
+    }
+  },
+  {
+    "id": 29,
+    "sheet": "art-source/v03/sheet-02.png",
+    "slot": 14,
+    "output": "public/art/v03/character-030.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x326+0+10",
+      "area": 73048
+    }
+  },
+  {
+    "id": 30,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 0,
+    "output": "public/art/v03/character-031.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x334+10+28",
+      "area": 68148
+    }
+  },
+  {
+    "id": 31,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 1,
+    "output": "public/art/v03/character-032.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x312+7+50",
+      "area": 66127
+    }
+  },
+  {
+    "id": 32,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 2,
+    "output": "public/art/v03/character-033.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "286x327+4+35",
+      "area": 71246
+    }
+  },
+  {
+    "id": 33,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 3,
+    "output": "public/art/v03/character-034.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x310+3+52",
+      "area": 60614
+    }
+  },
+  {
+    "id": 34,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 4,
+    "output": "public/art/v03/character-035.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x316+0+46",
+      "area": 57590
+    }
+  },
+  {
+    "id": 35,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 5,
+    "output": "public/art/v03/character-036.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x327+10+22",
+      "area": 69382
+    }
+  },
+  {
+    "id": 36,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 6,
+    "output": "public/art/v03/character-037.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "282x333+7+16",
+      "area": 80853
+    }
+  },
+  {
+    "id": 37,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 7,
+    "output": "public/art/v03/character-038.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x335+6+14",
+      "area": 70392
+    }
+  },
+  {
+    "id": 38,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 8,
+    "output": "public/art/v03/character-039.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "278x319+2+30",
+      "area": 68703
+    }
+  },
+  {
+    "id": 39,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 9,
+    "output": "public/art/v03/character-040.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x323+0+26",
+      "area": 69627
+    }
+  },
+  {
+    "id": 40,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 10,
+    "output": "public/art/v03/character-041.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x336+10+0",
+      "area": 64264
+    }
+  },
+  {
+    "id": 41,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 11,
+    "output": "public/art/v03/character-042.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "284x336+5+0",
+      "area": 71777
+    }
+  },
+  {
+    "id": 42,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 12,
+    "output": "public/art/v03/character-043.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x336+4+0",
+      "area": 68876
+    }
+  },
+  {
+    "id": 43,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 13,
+    "output": "public/art/v03/character-044.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x329+2+7",
+      "area": 61323
+    }
+  },
+  {
+    "id": 44,
+    "sheet": "art-source/v03/sheet-03.png",
+    "slot": 14,
+    "output": "public/art/v03/character-045.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x336+0+0",
+      "area": 66784
+    }
+  },
+  {
+    "id": 45,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 0,
+    "output": "public/art/v03/character-046.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x328+10+34",
+      "area": 67074
+    }
+  },
+  {
+    "id": 46,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 1,
+    "output": "public/art/v03/character-047.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x310+7+52",
+      "area": 59410
+    }
+  },
+  {
+    "id": 47,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 2,
+    "output": "public/art/v03/character-048.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "290x304+0+58",
+      "area": 71273
+    }
+  },
+  {
+    "id": 48,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 3,
+    "output": "public/art/v03/character-049.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x349+5+13",
+      "area": 68027
+    }
+  },
+  {
+    "id": 49,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 4,
+    "output": "public/art/v03/character-050.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x303+2+59",
+      "area": 67361
+    }
+  },
+  {
+    "id": 50,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 5,
+    "output": "public/art/v03/character-051.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x326+10+22",
+      "area": 69698
+    }
+  },
+  {
+    "id": 51,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 6,
+    "output": "public/art/v03/character-052.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "277x327+7+21",
+      "area": 71606
+    }
+  },
+  {
+    "id": 52,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 7,
+    "output": "public/art/v03/character-053.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "286x327+2+21",
+      "area": 57109
+    }
+  },
+  {
+    "id": 53,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 8,
+    "output": "public/art/v03/character-054.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "277x325+5+23",
+      "area": 68689
+    }
+  },
+  {
+    "id": 54,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 9,
+    "output": "public/art/v03/character-055.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "281x328+0+20",
+      "area": 63301
+    }
+  },
+  {
+    "id": 55,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 10,
+    "output": "public/art/v03/character-056.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x338+10+0",
+      "area": 74681
+    }
+  },
+  {
+    "id": 56,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 11,
+    "output": "public/art/v03/character-057.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x338+7+0",
+      "area": 83836
+    }
+  },
+  {
+    "id": 57,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 12,
+    "output": "public/art/v03/character-058.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "286x337+2+1",
+      "area": 63790
+    }
+  },
+  {
+    "id": 58,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 13,
+    "output": "public/art/v03/character-059.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x338+5+0",
+      "area": 80275
+    }
+  },
+  {
+    "id": 59,
+    "sheet": "art-source/v03/sheet-04.png",
+    "slot": 14,
+    "output": "public/art/v03/character-060.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x338+1+0",
+      "area": 73485
+    }
+  },
+  {
+    "id": 60,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 0,
+    "output": "public/art/v03/character-061.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "271x328+11+34",
+      "area": 73343
+    }
+  },
+  {
+    "id": 61,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 1,
+    "output": "public/art/v03/character-062.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x336+0+26",
+      "area": 71443
+    }
+  },
+  {
+    "id": 62,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 2,
+    "output": "public/art/v03/character-063.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x324+0+38",
+      "area": 71828
+    }
+  },
+  {
+    "id": 63,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 3,
+    "output": "public/art/v03/character-064.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x337+0+25",
+      "area": 67208
+    }
+  },
+  {
+    "id": 64,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 4,
+    "output": "public/art/v03/character-065.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x330+0+32",
+      "area": 57592
+    }
+  },
+  {
+    "id": 65,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 5,
+    "output": "public/art/v03/character-066.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "269x326+12+23",
+      "area": 61414
+    }
+  },
+  {
+    "id": 66,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 6,
+    "output": "public/art/v03/character-067.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "271x337+0+13",
+      "area": 62474
+    }
+  },
+  {
+    "id": 67,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 7,
+    "output": "public/art/v03/character-068.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "286x329+0+20",
+      "area": 80511
+    }
+  },
+  {
+    "id": 68,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 8,
+    "output": "public/art/v03/character-069.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "278x326+3+23",
+      "area": 65700
+    }
+  },
+  {
+    "id": 69,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 9,
+    "output": "public/art/v03/character-070.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "287x335+0+15",
+      "area": 77531
+    }
+  },
+  {
+    "id": 70,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 10,
+    "output": "public/art/v03/character-071.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "269x339+12+0",
+      "area": 73220
+    }
+  },
+  {
+    "id": 71,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 11,
+    "output": "public/art/v03/character-072.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x339+0+0",
+      "area": 67166
+    }
+  },
+  {
+    "id": 72,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 12,
+    "output": "public/art/v03/character-073.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x338+0+1",
+      "area": 68619
+    }
+  },
+  {
+    "id": 73,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 13,
+    "output": "public/art/v03/character-074.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "289x339+0+0",
+      "area": 83017
+    }
+  },
+  {
+    "id": 74,
+    "sheet": "art-source/v03/sheet-05.png",
+    "slot": 14,
+    "output": "public/art/v03/character-075.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x339+0+0",
+      "area": 73780
+    }
+  },
+  {
+    "id": 75,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 0,
+    "output": "public/art/v03/character-076.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x336+11+26",
+      "area": 64162
+    }
+  },
+  {
+    "id": 76,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 1,
+    "output": "public/art/v03/character-077.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x335+12+27",
+      "area": 61398
+    }
+  },
+  {
+    "id": 77,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 2,
+    "output": "public/art/v03/character-078.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "273x332+8+30",
+      "area": 65533
+    }
+  },
+  {
+    "id": 78,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 3,
+    "output": "public/art/v03/character-079.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x329+0+33",
+      "area": 74420
+    }
+  },
+  {
+    "id": 79,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 4,
+    "output": "public/art/v03/character-080.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x306+0+56",
+      "area": 55232
+    }
+  },
+  {
+    "id": 80,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 5,
+    "output": "public/art/v03/character-081.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "279x332+11+18",
+      "area": 79843
+    }
+  },
+  {
+    "id": 81,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 6,
+    "output": "public/art/v03/character-082.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "281x333+8+17",
+      "area": 66993
+    }
+  },
+  {
+    "id": 82,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 7,
+    "output": "public/art/v03/character-083.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 4,
+      "box": "279x330+2+20",
+      "area": 70695
+    }
+  },
+  {
+    "id": 83,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 8,
+    "output": "public/art/v03/character-084.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "282x332+0+18",
+      "area": 64196
+    }
+  },
+  {
+    "id": 84,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 9,
+    "output": "public/art/v03/character-085.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "279x331+0+19",
+      "area": 77443
+    }
+  },
+  {
+    "id": 85,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 10,
+    "output": "public/art/v03/character-086.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x338+11+0",
+      "area": 66477
+    }
+  },
+  {
+    "id": 86,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 11,
+    "output": "public/art/v03/character-087.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "275x338+4+0",
+      "area": 75354
+    }
+  },
+  {
+    "id": 87,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 12,
+    "output": "public/art/v03/character-088.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x338+0+0",
+      "area": 73023
+    }
+  },
+  {
+    "id": 88,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 13,
+    "output": "public/art/v03/character-089.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "286x338+0+0",
+      "area": 82432
+    }
+  },
+  {
+    "id": 89,
+    "sheet": "art-source/v03/sheet-06.png",
+    "slot": 14,
+    "output": "public/art/v03/character-090.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x338+1+0",
+      "area": 66565
+    }
+  },
+  {
+    "id": 90,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 0,
+    "output": "public/art/v03/character-091.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "271x320+15+42",
+      "area": 58511
+    }
+  },
+  {
+    "id": 91,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 1,
+    "output": "public/art/v03/character-092.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x319+0+43",
+      "area": 74526
+    }
+  },
+  {
+    "id": 92,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 2,
+    "output": "public/art/v03/character-093.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "289x320+1+42",
+      "area": 68368
+    }
+  },
+  {
+    "id": 93,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 3,
+    "output": "public/art/v03/character-094.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x319+3+43",
+      "area": 62121
+    }
+  },
+  {
+    "id": 94,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 4,
+    "output": "public/art/v03/character-095.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "271x309+1+53",
+      "area": 59748
+    }
+  },
+  {
+    "id": 95,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 5,
+    "output": "public/art/v03/character-096.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "275x330+12+18",
+      "area": 75108
+    }
+  },
+  {
+    "id": 96,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 6,
+    "output": "public/art/v03/character-097.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "278x335+5+12",
+      "area": 68897
+    }
+  },
+  {
+    "id": 97,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 7,
+    "output": "public/art/v03/character-098.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x330+0+17",
+      "area": 74470
+    }
+  },
+  {
+    "id": 98,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 8,
+    "output": "public/art/v03/character-099.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "284x320+0+27",
+      "area": 68546
+    }
+  },
+  {
+    "id": 99,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 9,
+    "output": "public/art/v03/character-100.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "273x324+3+23",
+      "area": 61258
+    }
+  },
+  {
+    "id": 100,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 10,
+    "output": "public/art/v03/character-101.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "275x338+8+0",
+      "area": 68084
+    }
+  },
+  {
+    "id": 101,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 11,
+    "output": "public/art/v03/character-102.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x332+0+6",
+      "area": 63512
+    }
+  },
+  {
+    "id": 102,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 12,
+    "output": "public/art/v03/character-103.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x337+0+1",
+      "area": 63687
+    }
+  },
+  {
+    "id": 103,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 13,
+    "output": "public/art/v03/character-104.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "270x338+0+0",
+      "area": 64360
+    }
+  },
+  {
+    "id": 104,
+    "sheet": "art-source/v03/sheet-07.png",
+    "slot": 14,
+    "output": "public/art/v03/character-105.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x334+0+4",
+      "area": 81172
+    }
+  },
+  {
+    "id": 105,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 0,
+    "output": "public/art/v03/character-106.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x327+9+35",
+      "area": 65039
+    }
+  },
+  {
+    "id": 106,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 1,
+    "output": "public/art/v03/character-107.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "284x318+5+44",
+      "area": 74038
+    }
+  },
+  {
+    "id": 107,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 2,
+    "output": "public/art/v03/character-108.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x336+5+26",
+      "area": 65897
+    }
+  },
+  {
+    "id": 108,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 3,
+    "output": "public/art/v03/character-109.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "276x299+0+63",
+      "area": 66636
+    }
+  },
+  {
+    "id": 109,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 4,
+    "output": "public/art/v03/character-110.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x305+0+57",
+      "area": 61299
+    }
+  },
+  {
+    "id": 110,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 5,
+    "output": "public/art/v03/character-111.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "281x314+9+32",
+      "area": 71510
+    }
+  },
+  {
+    "id": 111,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 6,
+    "output": "public/art/v03/character-112.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "281x332+8+15",
+      "area": 71684
+    }
+  },
+  {
+    "id": 112,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 7,
+    "output": "public/art/v03/character-113.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x327+9+20",
+      "area": 72023
+    }
+  },
+  {
+    "id": 113,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 8,
+    "output": "public/art/v03/character-114.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "278x325+1+22",
+      "area": 58771
+    }
+  },
+  {
+    "id": 114,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 9,
+    "output": "public/art/v03/character-115.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "281x332+0+15",
+      "area": 63961
+    }
+  },
+  {
+    "id": 115,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 10,
+    "output": "public/art/v03/character-116.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x334+9+0",
+      "area": 79510
+    }
+  },
+  {
+    "id": 116,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 11,
+    "output": "public/art/v03/character-117.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x335+7+0",
+      "area": 72190
+    }
+  },
+  {
+    "id": 117,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 12,
+    "output": "public/art/v03/character-118.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x335+5+0",
+      "area": 80856
+    }
+  },
+  {
+    "id": 118,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 13,
+    "output": "public/art/v03/character-119.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "283x335+3+0",
+      "area": 74763
+    }
+  },
+  {
+    "id": 119,
+    "sheet": "art-source/v03/sheet-08.png",
+    "slot": 14,
+    "output": "public/art/v03/character-120.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x335+1+0",
+      "area": 65748
+    }
+  },
+  {
+    "id": 120,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 0,
+    "output": "public/art/v03/character-121.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x339+10+23",
+      "area": 72195
+    }
+  },
+  {
+    "id": 121,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 1,
+    "output": "public/art/v03/character-122.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x332+11+30",
+      "area": 65348
+    }
+  },
+  {
+    "id": 122,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 2,
+    "output": "public/art/v03/character-123.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "272x325+14+37",
+      "area": 62764
+    }
+  },
+  {
+    "id": 123,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 3,
+    "output": "public/art/v03/character-124.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "277x330+2+32",
+      "area": 67230
+    }
+  },
+  {
+    "id": 124,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 4,
+    "output": "public/art/v03/character-125.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x321+0+41",
+      "area": 62037
+    }
+  },
+  {
+    "id": 125,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 5,
+    "output": "public/art/v03/character-126.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "270x327+10+18",
+      "area": 63270
+    }
+  },
+  {
+    "id": 126,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 6,
+    "output": "public/art/v03/character-127.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "289x333+0+13",
+      "area": 84263
+    }
+  },
+  {
+    "id": 127,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 7,
+    "output": "public/art/v03/character-128.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 3,
+      "box": "261x324+14+21",
+      "area": 56864
+    }
+  },
+  {
+    "id": 128,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 8,
+    "output": "public/art/v03/character-129.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "281x331+0+15",
+      "area": 79700
+    }
+  },
+  {
+    "id": 129,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 9,
+    "output": "public/art/v03/character-130.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x332+0+13",
+      "area": 67813
+    }
+  },
+  {
+    "id": 130,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 10,
+    "output": "public/art/v03/character-131.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x336+10+0",
+      "area": 76684
+    }
+  },
+  {
+    "id": 131,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 11,
+    "output": "public/art/v03/character-132.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x336+3+0",
+      "area": 74634
+    }
+  },
+  {
+    "id": 132,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 12,
+    "output": "public/art/v03/character-133.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "286x336+0+0",
+      "area": 81334
+    }
+  },
+  {
+    "id": 133,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 13,
+    "output": "public/art/v03/character-134.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x336+0+0",
+      "area": 69516
+    }
+  },
+  {
+    "id": 134,
+    "sheet": "art-source/v03/sheet-09.png",
+    "slot": 14,
+    "output": "public/art/v03/character-135.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x336+0+0",
+      "area": 76273
+    }
+  },
+  {
+    "id": 135,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 0,
+    "output": "public/art/v03/character-136.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "280x325+5+37",
+      "area": 70155
+    }
+  },
+  {
+    "id": 136,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 1,
+    "output": "public/art/v03/character-137.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x343+6+19",
+      "area": 64153
+    }
+  },
+  {
+    "id": 137,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 2,
+    "output": "public/art/v03/character-138.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "290x319+0+43",
+      "area": 76777
+    }
+  },
+  {
+    "id": 138,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 3,
+    "output": "public/art/v03/character-139.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 0,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x312+4+50",
+      "area": 59225
+    }
+  },
+  {
+    "id": 139,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 4,
+    "output": "public/art/v03/character-140.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 0,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "282x329+3+33",
+      "area": 74968
+    }
+  },
+  {
+    "id": 140,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 5,
+    "output": "public/art/v03/character-141.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "280x324+5+24",
+      "area": 71473
+    }
+  },
+  {
+    "id": 141,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 6,
+    "output": "public/art/v03/character-142.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "278x333+7+15",
+      "area": 64886
+    }
+  },
+  {
+    "id": 142,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 7,
+    "output": "public/art/v03/character-143.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "276x327+7+21",
+      "area": 68260
+    }
+  },
+  {
+    "id": 143,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 8,
+    "output": "public/art/v03/character-144.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 362,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "279x325+4+23",
+      "area": 75310
+    }
+  },
+  {
+    "id": 144,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 9,
+    "output": "public/art/v03/character-145.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 362,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 2,
+      "box": "281x335+4+13",
+      "area": 65905
+    }
+  },
+  {
+    "id": 145,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 10,
+    "output": "public/art/v03/character-146.webp",
+    "sourceCell": {
+      "x": 0,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "279x333+5+5",
+      "area": 75405
+    }
+  },
+  {
+    "id": 146,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 11,
+    "output": "public/art/v03/character-147.webp",
+    "sourceCell": {
+      "x": 290,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "281x338+6+0",
+      "area": 73952
+    }
+  },
+  {
+    "id": 147,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 12,
+    "output": "public/art/v03/character-148.webp",
+    "sourceCell": {
+      "x": 579,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "276x331+8+7",
+      "area": 72070
+    }
+  },
+  {
+    "id": 148,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 13,
+    "output": "public/art/v03/character-149.webp",
+    "sourceCell": {
+      "x": 869,
+      "y": 724,
+      "w": 289,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "278x338+4+0",
+      "area": 67980
+    }
+  },
+  {
+    "id": 149,
+    "sheet": "art-source/v03/sheet-10.png",
+    "slot": 14,
+    "output": "public/art/v03/character-150.webp",
+    "sourceCell": {
+      "x": 1158,
+      "y": 724,
+      "w": 290,
+      "h": 362
+    },
+    "mainComponent": {
+      "id": 1,
+      "box": "288x336+0+2",
+      "area": 75186
+    }
+  }
+]

@@ -2,7 +2,7 @@
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{overscroll-behavior:none}
 button,select{font:inherit;cursor:pointer;color:inherit}button:focus-visible,select:focus-visible{outline:3px solid #d45b60;outline-offset:2px}
 button{border:1px solid #7899b1;background:#fff6e4;border-radius:10px;padding:6px 10px}
-#app{height:100vh;height:100dvh;max-width:620px;margin:auto;padding:max(7px,env(safe-area-inset-top)) max(7px,env(safe-area-inset-right)) max(7px,env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-left));display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto;gap:4px;background:linear-gradient(#91c9e7,#d4e6f3);border:3px solid #294b69;border-radius:22px}
+#app{height:100vh;height:100dvh;max-width:520px;margin:auto;padding:max(7px,env(safe-area-inset-top)) max(7px,env(safe-area-inset-right)) max(7px,env(safe-area-inset-bottom)) max(7px,env(safe-area-inset-left));display:grid;grid-template-rows:auto auto minmax(0,1fr) auto auto;gap:4px;background:linear-gradient(#91c9e7,#d4e6f3);border:3px solid #294b69;border-radius:22px}
 .game-header{display:flex;gap:8px;align-items:center;padding:4px 3px}.round-button{border:2px solid #396183;border-radius:50%;width:40px;height:40px;flex-shrink:0;padding:0;background:linear-gradient(#5192c1,#28557d);color:#fff;font-size:26px;box-shadow:0 2px 0 #244666}
 .level-title{flex:1;min-width:0}.level-title select{width:100%;border:0;border-radius:20px;background:#274e73;color:#fff;font-weight:800;font-size:20px;text-align:center;padding:4px;appearance:none}.level-title small{display:block;text-align:center;font-size:10px;font-weight:600;margin-top:3px}
 #timer{background:#fff1cd;border-radius:14px;padding:9px 7px;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:21px;box-shadow:inset 0 0 0 1px #e6c88d}
@@ -17,3 +17,13 @@ button{border:1px solid #7899b1;background:#fff6e4;border-radius:10px;padding:6p
 .target.complete img{filter:brightness(.4)}.target span{position:absolute;inset:0;display:grid;place-items:center;font-size:32px;color:#fff;text-shadow:0 2px 3px #263e35}
 dialog{width:min(360px,90vw);max-height:85dvh;overflow:auto;border:2px solid #7394ad;border-radius:18px;background:#fff6e4;color:#294256;padding:22px}dialog::backdrop{background:#173247aa}dialog h2{margin-top:0}dialog h3{font-size:13px}dialog p,dialog li{font-size:13px;line-height:1.6}dialog button{margin:5px}
 @media(max-height:650px){#app{gap:2px;padding-top:max(3px,env(safe-area-inset-top));padding-bottom:max(3px,env(safe-area-inset-bottom))}.game-header{padding:1px}.round-button{width:34px;height:34px}.level-title select{font-size:17px}#timer{font-size:18px;padding:6px}.stage-note{font-size:8px}.target img{height:58px}.target-heading{padding:4px 5px;font-size:10px}.targets{padding:4px}}
+
+:root{--art-saturation:.82}#game canvas,.target img{filter:saturate(var(--art-saturation))}.target.complete img{filter:saturate(var(--art-saturation)) brightness(.4)}
+/* On desktop/tablet, keep a portrait play area instead of stretching the
+   crowd across a short landscape window. Mobile still uses its full width. */
+@media(min-width:600px){
+  #app{width:clamp(360px,calc((100dvh - 320px)/1.5 + 20px),520px);max-width:100%}
+}
+@media(min-width:600px) and (max-height:850px){
+  .target img{height:70px}
+}

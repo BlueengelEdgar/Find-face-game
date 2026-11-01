@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>寻找人群 · V0.3 视觉验收</title></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><title>寻找人群 · V0.3 试玩版</title></head>
 <body><main id="app">
   <header class="game-header">
     <button id="back" class="round-button" aria-label="返回关卡菜单">‹</button>
-    <div class="level-title"><label><select id="level" aria-label="选择关卡"><option value="0">第 1 关</option><option value="1" disabled>第 2 关 · 待验收</option></select></label><small>找齐所有人物 · 10 位</small></div>
+    <div class="level-title"><label><select id="level" aria-label="选择关卡"><option value="0">第 1 关</option><option value="1">第 2 关 · 150 人</option><option value="2">密集样板 · 35 人</option></select></label><small id="level-caption">找齐所有人物 · 10 位</small></div>
     <strong id="timer">00:00.0</strong><button id="pause" class="round-button" aria-label="暂停或继续">Ⅱ</button>
   </header>
-  <section class="stage-note"><span>V0.3 · 第一阶段视觉样板</span><span id="progress"></span><button id="restart">重新开始</button></section>
+  <section class="stage-note"><span>V0.3 · 漫画寻人</span><span id="progress"></span><button id="restart">重新开始</button></section>
   <div id="game" aria-label="寻找人物区域"></div>
   <p id="feedback" role="status" aria-live="polite">寻找下方的五位人物</p>
   <section class="targets"><div class="target-heading"><strong>当前要找的 5 个人物</strong><span id="batch"></span></div><div id="targets"></div></section>
   <dialog id="result"><h2>全部找到！</h2><p id="result-time"></p><h3>模拟排行榜 · 非真实玩家数据</h3><ol id="ranking"></ol><button id="again">再玩本关</button><button id="next" hidden>下一关</button></dialog>
-  <dialog id="menu"><h2>寻找人群</h2><p>第一关 · 10 人视觉验收</p><p>30～40 人布局样板及 150 人第二关将在人工确认后继续。</p><button id="resume">返回游戏（保持暂停）</button><button id="menu-restart">重新开始第一关</button></dialog>
+  <dialog id="menu"><h2>寻找人群</h2><p id="menu-title"></p><p id="density-info"></p><button id="resume">返回游戏（保持暂停）</button><button id="menu-restart">重新开始本关</button></dialog>
 </main><script type="module" src="/src/main.js"></script></body></html>

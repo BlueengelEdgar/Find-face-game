@@ -83,3 +83,31 @@ test('SVG identity is deterministic, has no labels and keeps independent traits 
     assert.doesNotMatch(avatarSvg(id),/<text|https?:\/\/(?!www.w3.org)/);
   }
 });
+test('V0.3: 150 independent compressed images and reproducible compositions', async () => {
+  const { CHARACTERS }=await import('../src/characters.js');
+  const { artLayout, crowdLayout, supportsLevel }=await import('../src/art-layout.js');
+  const { readFile }=await import('node:fs/promises');
+  const { createHash }=await import('node:crypto');
+  assert.equal(CHARACTERS.length,150);
+  assert.equal(new Set(CHARACTERS.map(c=>c.id)).size,150);
+  const hashes=[];
+  for(const c of CHARACTERS) {
+    const image=await readFile(new URL('../public/'+c.file,import.meta.url));
+    assert.equal(image.toString('ascii',0,4),'RIFF');
+    assert.equal(image.toString('ascii',8,12),'WEBP');
+    hashes.push(createHash('sha256').update(image).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,150);
+  for(const [w,h] of [[300,330],[370,550],[500,750]]) {
+    for(const level of LEVELS) {
+      const points=crowdLayout(level,w,h);
+      assert.equal(points.length,level.count);
+      assert.equal(new Set(points.map(p=>p.id)).size,level.count);
+      assert.deepEqual(points,crowdLayout(level,w,h));
+      for(const p of points)assert.ok(p.x>0&&p.x<w&&p.y>0&&p.y<h);
+      if(level.count===150)assert.ok(points.every(p=>p.size>=w*.125),'bounded portrait size, no infinite shrink');
+    }
+  }
+  assert.equal(supportsLevel(LEVELS[1],300,330),false);
+  assert.equal(supportsLevel(LEVELS[1],370,550),true);
+});

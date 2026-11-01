@@ -1,12 +1,23 @@
 import Phaser from 'phaser';
-import { avatarUrl } from './avatars.js';
-import { layout } from './levels.js';
+import { CHARACTERS, characterUrl } from './characters.js';
+import { crowdLayout } from './art-layout.js';
 export class CrowdScene extends Phaser.Scene {
   constructor(controller) { super('crowd'); this.controller = controller; }
   preload() {
-    for (let id = 0; id < 150; id++) this.load.svg('face-' + id, avatarUrl(id), { width: 128, height: 144 });
+    for (const character of CHARACTERS) this.load.image('face-' + character.id, characterUrl(character.id));
+    this.load.on('progress', value => { document.querySelector('#feedback').textContent = '正在准备人物 '+Math.round(value*100)+'%'; });
+    this.load.on('loaderror', () => {
+      this.artLoadFailed = true;
+      document.querySelector('#feedback').textContent = '人物资源加载失败，请刷新重试';
+    });
   }
   create() {
+    if (this.artLoadFailed) {
+      document.querySelector('#pause').disabled = true;
+      document.querySelector('#restart').disabled = true;
+      return;
+    }
+    this.input.setTopOnly(true);
     this.controller.attach(this);
     const parent = document.querySelector('#game');
     this.observer = new ResizeObserver(([entry]) => {
@@ -21,16 +32,19 @@ export class CrowdScene extends Phaser.Scene {
   }
   show(level) {
     this.tweens.killAll();
-    this.children.removeAll(true);
+    // DisplayList.removeAll(true) only detaches children and leaves input alive.
+    // Destroy each object so old portraits cannot intercept taps after relayout.
+    this.children.getAll().forEach(child => child.destroy());
     const { width: WIDTH, height: HEIGHT } = this.scale.gameSize;
     this.cameras.main.setBackgroundColor('#f1dfbf');
     this.faces = new Map();
-    for (const point of layout(level, WIDTH, HEIGHT)) {
+    for (const point of crowdLayout(level, WIDTH, HEIGHT)) {
+      const texture = this.textures.get('face-' + point.id).getSourceImage();
       const face = this.add.image(point.x, point.y, 'face-' + point.id)
-        .setDisplaySize(point.size, point.size * 72 / 64).setDepth(point.y / HEIGHT * 100)
-        .setInteractive({ useHandCursor: true,
-          hitArea: new Phaser.Geom.Ellipse(64, 67.52, 74.24, 81.92),
-          hitAreaCallback: Phaser.Geom.Ellipse.Contains });
+        .setOrigin(0.5, CHARACTERS[point.id].face.y)
+        .setDisplaySize(point.size, point.size * texture.height / texture.width)
+        .setDepth(point.depth)
+        .setInteractive({ useHandCursor: true, pixelPerfect: true, alphaTolerance: 96 });
       face.on('pointerdown', () => this.controller.pick(point.id));
       this.faces.set(point.id, face);
     }

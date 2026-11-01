@@ -1,6 +1,7 @@
 export const LEVELS = [
   { name: '热身', count: 10, columns: 3, density: 0.76, maxSize: 108, stagger: 0.18, jitter: 0.08 },
   { name: '人海', count: 150, columns: 10, density: 1.06, maxSize: 64, stagger: 0.16, jitter: 0.045 },
+  { name: '密集样板', count: 35, columns: 6, density: 1.06, maxSize: 110, stagger: 0.18, jitter: 0.06 },
 ];
 export const BATCH_SIZE = 5;
 export const WIDTH = 390;

@@ -7,7 +7,7 @@ This branch is **not the completed V0.5 release**. Do not merge/deploy until the
 - Exactly five large, distinct existing characters in a staggered tutorial composition; one batch, then the existing celebration and only NEXT LEVEL.
 - Top-left slot badges 1–5 on target cards, retained with completion marks, reset for each new batch. No wall identity numbers; any-order matching unchanged.
 - Per-level instruction, Chinese explanation, 3/2/1/GO opening: nominal 3.3 seconds. Input/time blocked until GO; next level and retry replay the opening. Visibility pauses nest with opening/batch/viewport pauses.
-- Batch panel glow + 12 bounded sparkles; all five outgoing cards enlarge and fly upward with rotation; incoming cards fly in, overshoot, and settle. 280 ms exit + 350 ms entrance + up to 80 ms stagger = 710 ms. Clock/input locked throughout. Final batch goes straight to celebration.
+- Batch panel glow + 12 bounded sparkles; all five outgoing cards enlarge and fly upward with rotation; incoming cards fly in, overshoot, and settle. 200 ms matched-pair pulse + 180 ms exit + 280 ms entrance + up to 40 ms stagger = 700 ms. Clock/input locked throughout. Final batch goes straight to celebration.
 - Existing art, alpha-based Phaser hit tests, +3-second errors, haptics fallback, celebration, fake rankings and Pages workflow preserved.
 
 ## Explicitly unresolved: second-level population and natural layout
@@ -70,3 +70,15 @@ GitHub branch push succeeded (`5daf6ac` feature commit). Automatic draft PR crea
 - `git diff --check`: passed.
 
 Earlier exploratory runs exposed tutorial edge/chin clipping (fixed in coordinates) and an overly strict wall-time-independent assertion on repeated found taps (corrected to subtract actual elapsed time). The final full run passed; no test threshold for head visibility or density was weakened.
+
+## Follow-up: linked correct-match pulse
+
+Selecting a correct character now pulses the wall portrait and matching target card together from 1.0 to 1.12 and back over 200 ms. Both use a single Web Animation timeline; the Phaser visual samples that same timeline, including visibility pauses and cancellation. The wall uses a noninteractive visual copy at the character's original layer, preserving the original alpha hit area and layout scale. Completion badges remain visible. Existing target DOM nodes survive other rapid correct selections, so concurrent pulses are not lost.
+
+The last match in a batch finishes its pulse before old-card exit/new-card entrance; total card transition remains about 700 ms. The final match in a level finishes its pulse before celebration appears. Timer/input behavior remains owned by the existing Round state (batch pause/final completion), with no extra penalty. Resize/level changes destroy temporary visuals safely.
+
+Four responsive Chromium cases verify both portraits at the shared 1.12 peak, return to original scale, no interactive region on the pulse copy, unchanged badges, and successful five-person completion/NEXT LEVEL. Screenshot: [matched pair at shared peak](screenshots/v05-match-pulse.jpg). Real iPhone Safari remains untested.
+
+Follow-up files: `src/match-feedback.js` (shared-clock visual pulse), `src/main.js` (stable target cards and transition handoff), `tests/v05-browser.js` (paired-scale assertions), `tests/v05-regression.js` (updated combined timing), and the preview above. No production second-level layout change was included in this follow-up.
+
+Follow-up final checks: all four linked-scale browser cases passed; production build passed; the full responsive/offline regression passed again (370 correct touch picks, 64 batch transitions, no page errors); portable ZIP CRC/HTML equality passed. The existing 20 model tests also passed. These results do not change the failed 150-person layout acceptance or the outstanding real-Safari test status.

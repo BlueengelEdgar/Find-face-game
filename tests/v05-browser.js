@@ -37,6 +37,26 @@ try{
   for(const el of await page.locator('header,canvas,.target').all()){const b=await el.boundingBox();assert.ok(b.y>=0&&b.y+b.height<=viewport.height+1);}
   assert.ok(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight));
   await page.screenshot({path:`/tmp/v05-${viewport.width}-level1.png`});
+  await page.evaluate(()=>{
+   const proto=window.Phaser.GameObjects.Image.prototype,emit=proto.emit;
+   proto.emit=function(event,...args){if(event==='pointerdown')window.__pulseScene=this.scene;return emit.call(this,event,...args);};
+  });
+  const first=Number(await page.locator('.target').first().getAttribute('data-id'));await tap(first);
+  const pulse=await page.evaluate(async id=>{
+   const scene=window.__pulseScene,face=scene.faces.get(id),card=document.querySelector(`.target[data-id="${id}"]`);
+   const animation=card.getAnimations().find(a=>a.effect.getTiming().duration===200);
+   if(!animation)throw Error('Matching card pulse missing');
+   animation.pause();animation.currentTime=100;
+   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+   const visual=scene.children.list.find(o=>o.getData?.('feedback')==='match'&&o.getData('identity')===id);
+   const result={wallScale:visual.scaleX/face.scaleX,cardScale:new DOMMatrix(getComputedStyle(card).transform).a,interactive:!!visual.input,badge:card.querySelector('.slot-badge').textContent};
+   window.__pulseAnimation=animation;return result;
+  },first);
+  assert.ok(Math.abs(pulse.wallScale-1.12)<.001);assert.ok(Math.abs(pulse.cardScale-pulse.wallScale)<.001);assert.equal(pulse.interactive,false);assert.ok(pulse.badge);
+  if(viewport.width===390)await page.screenshot({path:'/tmp/v05-match-pulse.png'});
+  await page.evaluate(()=>window.__pulseAnimation.play());await page.waitForTimeout(250);
+  assert.equal(await page.evaluate(()=>window.__pulseScene.children.list.filter(o=>o.getData?.('feedback')==='match').length),0);
+  assert.equal(await page.locator(`.target[data-id="${first}"]`).evaluate(c=>getComputedStyle(c).transform),'none');
   reports.push({viewport,...measurement,minimumHead:Math.min(...measurement.actors.map(a=>a.head))});
   assert.ok(reports.at(-1).minimumHead>=.85,'tutorial head visibility');
   for(const id of await page.locator('.target').evaluateAll(nodes=>nodes.map(n=>Number(n.dataset.id))))await tap(id);

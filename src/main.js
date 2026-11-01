@@ -5,6 +5,7 @@ import { Round,formatTime } from './model.js';
 import { characterUrl } from './characters.js';
 import { crowdLayout,allLevelIds } from './art-layout.js';
 import { CrowdScene } from './scene.js';
+import { pulseMatch } from './match-feedback.js';
 const $=selector=>document.querySelector(selector);
 let scene,round,pack,loading=false,epoch=0,timerFlash;
 const activeAnimations=new Set();
@@ -15,13 +16,21 @@ function updateProgress(){
   $('#progress i').style.width=ratio*100+'%';
 }
 function targets(){
-  $('#targets').replaceChildren(...round.targets.map((id,index)=>{
-    const card=document.createElement('div');card.className='target'+(round.found.has(id)?' complete':'');card.dataset.id=id;
+  const host=$('#targets'),existing=[...host.children];
+  // Keep cards alive during rapid correct picks so their match pulses can finish.
+  const same=existing.length===round.targets.length&&existing.every((card,i)=>Number(card.dataset.id)===round.targets[i]);
+  if(!same)host.replaceChildren(...round.targets.map((id,index)=>{
+    const card=document.createElement('div');card.className='target';card.dataset.id=id;
     const img=new Image();img.src=characterUrl(id);img.alt='需要寻找的朋友';card.append(img);
     const badge=document.createElement('b');badge.className='slot-badge';badge.textContent=index+1;card.append(badge);
-    if(round.found.has(id)){const check=document.createElement('span');check.className='completion-check';check.textContent='✓';card.append(check);}
     return card;
   }));
+  for(const card of host.children){
+    if(!round.found.has(Number(card.dataset.id))){card.classList.remove('complete');card.querySelector('.completion-check')?.remove();}
+    if(round.found.has(Number(card.dataset.id))&&!card.classList.contains('complete')){
+      card.classList.add('complete');const check=document.createElement('span');check.className='completion-check';check.textContent='✓';card.append(check);
+    }
+  }
 }
 function cancelAnimations(){for(const a of activeAnimations)a.cancel();activeAnimations.clear();}
 function motion(cards,frames,duration,stagger=0){
@@ -37,9 +46,9 @@ function sparkle(){
   for(let i=0;i<12;i++){
     const star=document.createElement('i');star.className='batch-spark';star.textContent=i%3?'✦':'★';
     star.style.left=(5+i*8)+'%';host.append(star);
-    motion([star],[{opacity:1,transform:'translateY(0) scale(.5)'},{opacity:0,transform:`translateY(${-35-i%4*12}px) scale(1.3) rotate(90deg)`}],650).then(()=>star.remove());
+    motion([star],[{opacity:1,transform:'translateY(0) scale(.5)'},{opacity:0,transform:`translateY(${-35-i%4*12}px) scale(1.3) rotate(90deg)`}],500).then(()=>star.remove());
   }
-  motion([host],[{boxShadow:'0 0 0 0 #ffe09b'},{boxShadow:'0 0 24px 8px #ffe09b',offset:.3},{boxShadow:'0 2px 0 #b8c7b5'}],650);
+  motion([host],[{boxShadow:'0 0 0 0 #ffe09b'},{boxShadow:'0 0 24px 8px #ffe09b',offset:.3},{boxShadow:'0 2px 0 #b8c7b5'}],500);
 }
 async function swapBatch(owner,token){
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -48,14 +57,14 @@ async function swapBatch(owner,token){
     {opacity:1,transform:'scale(1)'},
     {opacity:1,transform:'scale(1.1)',offset:.3},
     {opacity:0,transform:reduced?'scale(1)':`translate(${(i-2)*23}px,-55px) rotate(${(i-2)*9}deg) scale(.85)`}
-  ],280);
+  ],180);
   if(round!==owner||epoch!==token)return;
   owner.advanceBatch();targets();$('#targets').dataset.phase='entering';
   await motion([...$('#targets').children],i=>[
     {opacity:0,transform:reduced?'scale(1)':`translate(${(2-i)*24}px,40px) rotate(${(2-i)*7}deg) scale(.75)`},
     {opacity:1,transform:'translate(0,-5px) rotate(0) scale(1.07)',offset:.72},
     {opacity:1,transform:'translate(0,0) rotate(0) scale(1)'}
-  ],350,20);
+  ],280,10);
   if(round!==owner||epoch!==token)return;
   owner.finishTransition();$('#targets').dataset.phase='idle';$('#targets').setAttribute('aria-busy','false');
   $('#batch').textContent='新的朋友来了';$('#feedback').textContent='继续寻找下方的朋友';clock();
@@ -129,8 +138,12 @@ const controller={
     const result=round.pick(id);
     if(result==='correct'){
       scene.mark(id);targets();updateProgress();clock();$('#feedback').textContent='找到了！';
-      if(round.done)finish();
-      else if(round.transitioning)swapBatch(round,epoch);
+      const owner=round,token=epoch;
+      const pulse=pulseMatch(scene,id,$('#targets').querySelector(`[data-id="${id}"]`),activeAnimations);
+      if(owner.done||owner.transitioning)pulse.then(()=>{
+        if(round!==owner||epoch!==token)return;
+        if(owner.done)finish();else swapBatch(owner,token);
+      });
     }else if(result==='wrong'){
       scene.wrong(id);clock();$('#feedback').textContent='选错了，已增加时间';
       timerFlash?.cancel();

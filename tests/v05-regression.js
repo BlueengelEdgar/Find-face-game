@@ -166,10 +166,10 @@ async function completeLevel(page,viewport,index,detail=false){
     assert.equal(probe.animations.filter(a=>a.length>0).length,5,'all five cards animate');
    }
    assert.equal(exit.before,enter.after,'clock held throughout exit and entry');
-   assert.ok(exit.animations.every(a=>a[0].duration===280&&a[0].delay===0));
+   assert.ok(exit.animations.every(a=>a[0].duration===180&&a[0].delay===0));
    assert.ok(exit.animations.every(a=>a[0].transforms.some(t=>t?.includes('rotate('))),'exit includes rotation and flight, not just opacity');
-   assert.ok(enter.animations.every(a=>a[0].duration===350));
-   assert.ok(280+Math.max(...enter.animations.map(a=>a[0].delay))+350<=750);
+   assert.ok(enter.animations.every(a=>a[0].duration===280));
+   assert.ok(200+180+Math.max(...enter.animations.map(a=>a[0].delay))+280<=750);
    assert.equal(await page.locator('#targets').getAttribute('aria-busy'),'false');
   }
  }

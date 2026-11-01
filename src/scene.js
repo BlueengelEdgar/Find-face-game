@@ -68,18 +68,21 @@ export class CrowdScene extends Phaser.Scene {
     this.add.text(face.x,face.y,'✓',{fontSize:Math.max(20,face.displayWidth*.43)+'px',color:'#ffffff',stroke:'#356c51',strokeThickness:3}).setOrigin(.5).setDepth(500);
   }
   setBlocked(value){this.veil?.setVisible(value);this.pauseLabel?.setVisible(value);}
+  stopFeedback(){
+    this.tweens.killAll();
+    for(const face of this.faces?.values()??[]){face.x=face.baseX;face.y=face.baseY;}
+    for(const child of this.children.getAll())if(child.getData?.('feedback'))child.destroy();
+    this.effects.clear();
+  }
   wrong(id){
-    const face=this.faces.get(id);
-    const old=this.effects.get(id);
-    if(old){this.tweens.killTweensOf([old.cross,old.label]);old.cross.destroy();old.label.destroy();}
+    const face=this.faces.get(id),old=this.effects.get(id);
+    if(old){this.tweens.killTweensOf(old.cross);old.cross.destroy();}
     this.tweens.killTweensOf(face);face.x=face.baseX;face.y=face.baseY;
     const shake=Math.min(4,face.displayWidth*.045);
     this.tweens.add({targets:face,x:{from:face.baseX-shake,to:face.baseX+shake},duration:35,yoyo:true,repeat:2,onComplete:()=>{face.x=face.baseX;}});
     const cross=this.add.text(face.baseX,face.baseY,'×',{fontFamily:'sans-serif',fontSize:Math.max(29,face.displayWidth*.48)+'px',fontStyle:'bold',color:'#d84d49',stroke:'#fff3e7',strokeThickness:3}).setOrigin(.5).setDepth(900);
-    const label=this.add.text(face.baseX,face.baseY-16,'+3s',{fontSize:'17px',fontStyle:'bold',color:'#cf413d',stroke:'#fff7e9',strokeThickness:3}).setOrigin(.5).setDepth(901);
-    cross.setData('feedback','wrong');label.setData('feedback','penalty');
-    this.tweens.add({targets:cross,alpha:0,delay:200,duration:150,onComplete:()=>cross.destroy()});
-    this.tweens.add({targets:label,y:label.y-24,alpha:0,duration:600,onComplete:()=>{label.destroy();if(this.effects.get(id)?.label===label)this.effects.delete(id);}});
-    this.effects.set(id,{cross,label});
+    cross.setData('feedback','wrong');
+    this.tweens.add({targets:cross,alpha:0,delay:200,duration:150,onComplete:()=>{cross.destroy();if(this.effects.get(id)?.cross===cross)this.effects.delete(id);}});
+    this.effects.set(id,{cross});
   }
 }

@@ -1,0 +1,9 @@
+V0.6 changes the game to a 30-second challenge: correct +3s, wrong −2s, terminal timeout/retry, and a single authoritative remaining-time HUD with reversible green/yellow/red stages. Independent curved time flights and 16/20-star target bursts preserve immediate accounting, existing paired zoom, batch locks, matching and celebration. GO finishes before the timer starts.
+
+The existing 75/45-person second-level layouts now use deterministic 2D sampling and real-mask correction instead of row jitter. Phone candidate audits pass with ~87.5%/88.1% worst head visibility and ~91.2%/81.8% foreground occupancy. All existing portrait/background files and the Pages workflow remain unchanged.
+
+**Draft / density decision pending:** main had 75/45 playable characters and 150 unique art files, not a complete 150-person playable level. A real 150-person diagnostic fails visibility for 145 heads and stable face witnesses for 20. 180/200 counts lack 30/50 independent art files, and optimistic area estimates exceed phone capacity; no repeated portraits or unapproved tiny sprites were used. Those are estimates, not actual 180/200-person acceptance tests. Human approval of a space/art plan is required before completing that part. No merge or deployment performed.
+
+See `docs/V06-VALIDATION.md` for commands, full tests, actual screenshots, file list, capacity assumptions, new-art specifications and untested real Safari/physical-device items. The existing Phaser chunk warning remains.
+
+Validation: npm ci, 23 model tests, production build, 370 correct selections / 64 transitions across five responsive/offline level pairs, plus a 50-selection short-screen hold/drag/rapid-error/haptic-fallback regression. Actual snapshots and machine-readable results are included. Real iPhone Safari and physical performance remain untested.

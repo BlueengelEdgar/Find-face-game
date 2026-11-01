@@ -1,113 +1,93 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { Round, formatTime } from '../src/model.js';
-import { LEVELS, layout, WIDTH, HEIGHT } from '../src/levels.js';
-import { avatarSvg } from '../src/avatars.js';
-for (const level of LEVELS) {
-  test(`${level.count} people: unique queue, groups of five, finish exactly once`, () => {
-    let now = 0;
-    const round = new Round(level.count, () => now);
-    assert.equal(new Set(round.queue).size, level.count);
-    const seen = [];
-    while (!round.done) {
-      const group = [...round.targets];
-      assert.equal(group.length, 5);
-      for (const id of group) {
-        seen.push(id); now += 100;
-        assert.equal(round.pick(id), 'correct');
-        assert.equal(round.pick(id), round.done ? 'blocked' : 'found');
-      }
-    }
-    assert.equal(new Set(seen).size, level.count);
-    const elapsed = round.elapsed; now += 500;
-    assert.equal(round.elapsed, elapsed);
+import {readFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {Round,shuffle,formatTime} from '../src/model.js';
+import {selectPack,supportsPack} from '../src/levels.js';
+import {crowdLayout,allLevelIds} from '../src/art-layout.js';
+import {CHARACTERS} from '../src/characters.js';
+test('shuffle preserves unique identity membership without mutating input',()=>{
+ const ids=[2,7,13,48,90],copy=[...ids],mixed=shuffle(ids,()=>.37);
+ assert.deepEqual(ids,copy);assert.deepEqual([...mixed].sort((a,b)=>a-b),copy);
+});
+test('reject invalid or duplicate identities and non-batched populations',()=>{
+ for(const invalid of [0,-1,3,5.5,'5',[0,0,1,2,3],[-1,0,1,2,3]])assert.throws(()=>new Round(invalid));
+});
+test('wrong selections add exactly three seconds each including rapid repeated picks',()=>{
+ let now=0;const r=new Round(10,()=>now,()=>.5),wrong=r.queue[7];
+ for(let i=1;i<=5;i++){assert.equal(r.pick(wrong),'wrong');assert.equal(r.penaltyMs,i*3000);assert.equal(r.elapsed,i*3000);}
+});
+test('correct, already found and unknown/blank identities never add penalty',()=>{
+ const r=new Round(10,()=>0),id=r.targets[0];assert.equal(r.pick(id),'correct');
+ assert.equal(r.pick(id),'found');assert.equal(r.pick(-1),'ignored');assert.equal(r.pick(1500),'ignored');assert.equal(r.penaltyMs,0);
+});
+test('completed batch stays displayed until explicit animation midpoint',()=>{
+ const r=new Round(10,()=>0);const old=[...r.targets];old.forEach(id=>r.pick(id));
+ assert.equal(r.transitioning,true);assert.deepEqual(r.targets,old);assert.equal(r.paused,true);
+ assert.equal(r.finishTransition(),false);assert.equal(r.advanceBatch(),true);assert.equal(r.advanceBatch(),false);
+ assert.equal(r.targets.some(id=>old.includes(id)),false);assert.equal(r.finishTransition(),true);assert.equal(r.finishTransition(),false);
+});
+test('all input is blocked during both exit and entry animation phases',()=>{
+ const r=new Round(10,()=>0),group=[...r.targets];group.forEach(id=>r.pick(id));
+ assert.equal(r.pick(r.queue[8]),'blocked');r.advanceBatch();
+ assert.equal(r.pick(r.targets[0]),'blocked');assert.equal(r.penaltyMs,0);assert.equal(r.found.size,5);
+});
+test('batch animation interval is excluded from elapsed time',()=>{
+ let now=100;const r=new Round(10,()=>now);now=1100;[...r.targets].forEach(id=>r.pick(id));
+ assert.equal(r.elapsed,1000);now+=180;r.advanceBatch();assert.equal(r.elapsed,1000);
+ now+=280;r.finishTransition();assert.equal(r.elapsed,1000);now+=100;assert.equal(r.elapsed,1100);
+});
+test('nested background and batch pauses never resume clock early',()=>{
+ let now=0;const r=new Round(10,()=>now);now=100;[...r.targets].forEach(id=>r.pick(id));
+ now=200;r.setPause('hidden',true);now=300;r.advanceBatch();now=560;r.finishTransition();
+ assert.equal(r.paused,true);assert.equal(r.elapsed,100);now=1000;r.setPause('hidden',false);now=1100;assert.equal(r.elapsed,200);
+});
+test('penalties coexist with real elapsed time and viewport pauses',()=>{
+ let now=0;const r=new Round(10,()=>now);now=1000;r.pick(r.queue[8]);assert.equal(r.elapsed,4000);
+ r.setPause('viewport',true);now=9000;assert.equal(r.elapsed,4000);
+ assert.equal(r.pick(r.queue[8]),'blocked');r.setPause('viewport',false);now=10000;assert.equal(r.elapsed,5000);
+});
+for(const [w,h] of [[370,620],[300,390]]){
+ for(const level of [0,1]){
+  const pack=selectPack(level,w,h),points=crowdLayout(pack,w,h);
+  test('full completion for '+pack.tier+' at '+w+'×'+h,()=>{
+   let now=0;const r=new Round(points.map(p=>p.id),()=>now);const seen=new Set();
+   while(!r.done){
+    const group=[...r.targets];assert.equal(group.length,5);
+    for(const id of group){now+=100;assert.equal(r.pick(id),'correct');assert.equal(seen.has(id),false);seen.add(id);}
+    if(!r.done){now+=180;assert.equal(r.advanceBatch(),true);now+=280;r.finishTransition();}
+   }
+   assert.equal(seen.size,pack.count);assert.equal(r.elapsed,pack.count*100);
+   const finished=r.elapsed;now+=5000;assert.equal(r.elapsed,finished);assert.equal(r.pick(points[0].id),'blocked');
   });
-  test(`${level.count} layout remains in fixed viewport`, () => {
-    const points = layout(level);
-    assert.equal(points.length, level.count);
-    for (const p of points) {
-      assert.ok(p.x - p.size / 2 >= 0 && p.x + p.size / 2 <= WIDTH);
-      assert.ok(p.y - p.size * 72 / 128 >= 0 && p.y + p.size * 72 / 128 <= HEIGHT);
-    }
-  });
+ }
 }
-test('wrong clicks do not penalize, paused input blocked and pause time excluded', () => {
-  let now = 0;
-  const r = new Round(10, () => now, () => .5);
-  const wrong = r.queue.find(id => !r.targets.includes(id));
-  now = 1000; assert.equal(r.pick(wrong), 'wrong'); assert.equal(r.elapsed, 1000);
-  r.togglePause(); now = 9000;
-  assert.equal(r.elapsed, 1000); assert.equal(r.pick(r.targets[0]), 'blocked');
-  r.togglePause(); now = 10000; assert.equal(r.elapsed, 2000);
-  assert.equal(r.found.size, 0);
-});
-test('restart constructs fresh progress and clock', () => {
-  const old = new Round(10); old.pick(old.targets[0]); old.togglePause();
-  const fresh = new Round(10, () => 500);
-  assert.equal(fresh.found.size, 0); assert.equal(fresh.elapsed, 0); assert.equal(fresh.paused, false);
-});
-test('all 150 placeholder identities have distinct visuals', () => {
-  const visuals = Array.from({length:150}, (_, id) => avatarSvg(id).replace(/>\d{3}<\/text>/, '></text>'));
-  assert.equal(new Set(visuals).size, 150);
-});
-test('time format includes minutes, seconds, tenths', () => assert.equal(formatTime(72567), '01:12.5'));
-test('responsive staggered layouts: bounds, unique centers, protected faces and overlapping silhouettes', async () => {
-  const { faceHit } = await import('../src/levels.js');
-  for (const [width,height] of [[300,260],[355,365],[370,500],[540,700],[540,400]]) {
-    for (const level of LEVELS) {
-      const points=layout(level,width,height);
-      let overlap=0;
-      for(const p of points) {
-        assert.ok(faceHit(p,p.x,p.y));
-        assert.ok(p.x-p.size/2>=0 && p.x+p.size/2<=width);
-        assert.ok(p.y-p.size*1.125/2>=0 && p.y+p.size*1.125/2<=height);
-        for(const q of points) {
-          if(p.id===q.id)continue;
-          assert.equal(faceHit(q,p.x,p.y),false,'each face center belongs only to itself');
-          // Protected face ellipse bounding boxes must not intersect.
-          assert.ok(Math.abs(p.x-q.x)>=(p.size+q.size)*.29 ||
-            Math.abs((p.y-p.size*.035)-(q.y-q.size*.035))>=(p.size+q.size)*.32);
-          if(Math.abs(p.x-q.x)<(p.size+q.size)/2 && Math.abs(p.y-q.y)<(p.size+q.size)*1.125/2)overlap++;
-        }
-      }
-      if(level.count===150 && height>400)assert.ok(overlap>0,'dense silhouettes overlap while faces stay exposed');
-    }
+test('layouts are reproducible, use unique real artwork IDs and bounded portrait sizes',()=>{
+ for(const [w,h] of [[300,390],[370,620],[480,810]]){
+  for(const level of [0,1]){
+   const p=selectPack(level,w,h),points=crowdLayout(p,w,h);
+   assert.equal(new Set(points.map(v=>v.id)).size,p.count);assert.deepEqual(points,crowdLayout(p,w,h));
+   assert.ok(points.every(v=>v.id>=0&&v.id<CHARACTERS.length&&v.size>=w*.17&&v.x>0&&v.x<w&&v.y>0&&v.y<h));
   }
+ }
+ assert.equal(supportsPack(selectPack(1,370,620),370,200),false);
 });
-test('SVG identity is deterministic, has no labels and keeps independent traits unique', async () => {
-  const { traits }=await import('../src/avatars.js');
-  const all=Array.from({length:150},(_,id)=>traits(id));
-  assert.equal(new Set(all.map(t=>JSON.stringify(t))).size,150);
-  for(let id=0;id<150;id++) {
-    assert.equal(avatarSvg(id),avatarSvg(id));
-    assert.doesNotMatch(avatarSvg(id),/<text|https?:\/\/(?!www.w3.org)/);
-  }
+test('all retained character files remain unique, valid local WebP resources',async()=>{
+ const hashes=[];for(const c of CHARACTERS){
+  const data=await readFile(new URL('../public/'+c.file,import.meta.url));
+  assert.equal(data.toString('ascii',0,4),'RIFF');assert.equal(data.toString('ascii',8,12),'WEBP');
+  hashes.push(createHash('sha256').update(data).digest('hex'));
+ }
+ assert.equal(CHARACTERS.length,150);assert.equal(new Set(hashes).size,150);
+ assert.ok(allLevelIds(1).every(id=>CHARACTERS[id]));
 });
-test('V0.3: 150 independent compressed images and reproducible compositions', async () => {
-  const { CHARACTERS }=await import('../src/characters.js');
-  const { artLayout, crowdLayout, supportsLevel }=await import('../src/art-layout.js');
-  const { readFile }=await import('node:fs/promises');
-  const { createHash }=await import('node:crypto');
-  assert.equal(CHARACTERS.length,150);
-  assert.equal(new Set(CHARACTERS.map(c=>c.id)).size,150);
-  const hashes=[];
-  for(const c of CHARACTERS) {
-    const image=await readFile(new URL('../public/'+c.file,import.meta.url));
-    assert.equal(image.toString('ascii',0,4),'RIFF');
-    assert.equal(image.toString('ascii',8,12),'WEBP');
-    hashes.push(createHash('sha256').update(image).digest('hex'));
-  }
-  assert.equal(new Set(hashes).size,150);
-  for(const [w,h] of [[300,330],[370,550],[500,750]]) {
-    for(const level of LEVELS) {
-      const points=crowdLayout(level,w,h);
-      assert.equal(points.length,level.count);
-      assert.equal(new Set(points.map(p=>p.id)).size,level.count);
-      assert.deepEqual(points,crowdLayout(level,w,h));
-      for(const p of points)assert.ok(p.x>0&&p.x<w&&p.y>0&&p.y<h);
-      if(level.count===150)assert.ok(points.every(p=>p.size>=w*.125),'bounded portrait size, no infinite shrink');
-    }
-  }
-  assert.equal(supportsLevel(LEVELS[1],300,330),false);
-  assert.equal(supportsLevel(LEVELS[1],370,550),true);
+test('both local backgrounds are small raster assets and UI has no population or dev controls',async()=>{
+ for(const name of ['garden','town']){const f=await readFile(new URL('../public/art/backgrounds/'+name+'.webp',import.meta.url));assert.equal(f.toString('ascii',8,12),'WEBP');assert.ok(f.length<180000);}
+ const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
+ assert.doesNotMatch(html,/id="(?:back|pause|restart|level|menu)"/);
+ assert.doesNotMatch(html,/\d+\s*(?:人|位)|样板|V0\.[34]/);
+ assert.match(html,/CONGRATULATIONS!/);assert.match(html,/LEVEL COMPLETE!/);
+});
+test('formatted time includes penalties without negative output',()=>{
+ assert.equal(formatTime(72567),'01:12.5');assert.equal(formatTime(-20),'00:00.0');
 });

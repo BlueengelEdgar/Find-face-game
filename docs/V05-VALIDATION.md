@@ -55,3 +55,18 @@ Branch: `feat/v05-crowd-experience`. No main changes, merge, Pages permission ch
 - `scripts/measure-v05-capacity.py`, `scripts/seed-v05-diagnostic.mjs`, `tests/v05-capacity-preview.js`, `docs/v05-*.json`: reproducible 150-person capacity evidence, outside production gameplay.
 - `scripts/build-portable.mjs`, `scripts/package-trial.py`, `package.json`, lockfile: V0.5 draft artifact names, test commands and version.
 - `docs/screenshots/v05-*.jpg`: actual gameplay/diagnostic previews.
+
+GitHub branch push succeeded (`5daf6ac` feature commit). Automatic draft PR creation failed with `Post https://api.github.com/graphql: Forbidden` in the cloud environment. No PR number was returned and no PR creation is claimed. Manual draft creation: https://github.com/BlueengelEdgar/Find-face-game/compare/main...feat/v05-crowd-experience?expand=1 — select **Create draft pull request** and use `docs/V05-PR.md`. Do not merge while the capacity decision is pending.
+
+## Final automated results
+
+- `npm ci`: passed.
+- `npm test`: 20/20 passed, including a 150-ID/30-batch model-only completion test.
+- `npm run build`: passed; portable HTML embedding/parsing verified. Existing Phaser chunk-size warning remains.
+- `npm run test:browser`: passed. Four intro/tutorial viewports; then 370 correct touch selections across five complete tutorial + V0.4 baseline second-level runs, with 64 batch transitions. Includes supported/unsupported/throwing vibration, rapid errors, hold/drag, correct/found input, alpha-transparent overlap, countdown/transition locks, badges, responsive bounds, retry reset, fake ranking, and zero-network offline HTML. See `v05-browser-results.json`.
+- Tutorial worst upper-head visibility: 90.96% / 98.64% / 91.94% / 91.45% across the four viewports; all central facial-feature masks >=95%.
+- Capacity diagnostic: completed as a **failed 150-person layout experiment**, not a passing acceptance test.
+- ZIP helper: CRC and embedded HTML equality passed.
+- `git diff --check`: passed.
+
+Earlier exploratory runs exposed tutorial edge/chin clipping (fixed in coordinates) and an overly strict wall-time-independent assertion on repeated found taps (corrected to subtract actual elapsed time). The final full run passed; no test threshold for head visibility or density was weakened.

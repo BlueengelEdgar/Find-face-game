@@ -103,3 +103,8 @@ test('GO respects a nested visibility pause and tutorial has only one batch',()=
  now=5100;for(const id of r.targets)assert.equal(r.pick(id),'correct');assert.equal(r.done,true);assert.equal(r.elapsed,100);assert.equal(r.transitioning,false);
  for(const dims of [[370,594],[300,382]]){const p=selectPack(0,...dims);assert.equal(p.count,5);assert.equal(crowdLayout(p,...dims).length,5);}
 });
+test('all 150 existing identities complete 30 unique model batches (not layout acceptance)',()=>{
+ const ids=CHARACTERS.map(c=>c.id),r=new Round(ids,()=>0),seen=new Set();let batches=0;
+ while(!r.done){batches++;for(const id of [...r.targets]){assert.equal(seen.has(id),false);seen.add(id);assert.equal(r.pick(id),'correct');}if(!r.done){r.advanceBatch();r.finishTransition();}}
+ assert.equal(batches,30);assert.equal(seen.size,150);assert.equal(r.penaltyMs,0);
+});

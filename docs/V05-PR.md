@@ -1,0 +1,7 @@
+The tutorial now contains five large staggered characters with numbered target slots, a locked instruction/countdown opening, and a 700 ms batch transition including a shared 200 ms correct-match pulse with panel glow, sparkles, rotating flight and elastic arrival. Existing alpha-based input, penalties, art and deployment workflow are preserved.
+
+**Draft / do not merge:** the requested 150-person second-level layout is blocked by the phone capacity constraints. Production second-level files remain the unchanged V0.4 75/45-person baseline. A separate deterministic 150-person diagnostic at existing minimum portrait size fails head visibility for 145 characters and stable face-touch witnesses for 17. The user must choose pagination, a measured lower population, or smaller portraits before this can become the complete V0.5 release. No rule relaxation has been silently selected.
+
+See `docs/V05-VALIDATION.md`, per-character capacity measurements and actual screenshots under `docs/screenshots/v05-*`. Real iPhone Safari, physical touch/haptics/FPS and human visual approval remain outstanding. This branch must not be described as a completed 150-person mobile release. No merge, Pages permission change or public deployment was performed.
+
+Validation: npm ci; 20 model tests; production build (existing Phaser chunk warning); four responsive Chromium opening/tutorial cases plus 370 correct touch picks / 64 batch transitions across five baseline level pairs, including offline portable HTML. Final run details are recorded in the validation document.

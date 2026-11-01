@@ -1,6 +1,6 @@
 {
   "name": "find-face-game",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,9 +8,10 @@
     "build": "vite build && node scripts/build-portable.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node tests/model.test.js",
-    "test:browser": "node tests/v04-browser.js",
+    "test:browser": "node tests/v05-browser.js && node tests/v05-regression.js",
     "art:extract": "node scripts/extract-art.mjs",
-    "test:offline": "node tests/v04-browser.js --offline-only"
+    "test:offline": "node tests/v05-regression.js --offline-only",
+    "test:capacity": "python scripts/measure-v05-capacity.py && node tests/v05-capacity-preview.js"
   },
   "dependencies": {
     "phaser": "3.90.0"

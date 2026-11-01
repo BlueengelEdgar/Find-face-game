@@ -1,0 +1,147 @@
+{
+  "correctPicks": 370,
+  "cases": [
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "index": 0,
+      "tier": "first",
+      "count": 5,
+      "minHead": 0.9096034214618973,
+      "minFeatures": 1,
+      "occupancy": 0.5985691573926868,
+      "largestGap": 0.07267771973654327,
+      "interiorGap": 0.05814217578923461
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "index": 1,
+      "tier": "regular",
+      "count": 75,
+      "minHead": 0.8864878250103178,
+      "minFeatures": 0.9975213166765814,
+      "occupancy": 0.9096070860776743,
+      "largestGap": 0.013627072450601862,
+      "interiorGap": 0.0028389734272087214
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "index": 0,
+      "tier": "first",
+      "count": 5,
+      "minHead": 0.9864258444776852,
+      "minFeatures": 1,
+      "occupancy": 0.6322368421052632,
+      "largestGap": 0.07105263157894737,
+      "interiorGap": 0.03618421052631579
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 568
+      },
+      "index": 1,
+      "tier": "compact",
+      "count": 45,
+      "minHead": 0.9303200449185851,
+      "minFeatures": 0.9932439455358071,
+      "occupancy": 0.812061403508772,
+      "largestGap": 0.039473684210526314,
+      "interiorGap": 0.004824561403508772
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "index": 0,
+      "tier": "first",
+      "count": 5,
+      "minHead": 0.9193720839813375,
+      "minFeatures": 1,
+      "occupancy": 0.5872388481084133,
+      "largestGap": 0.07587521174477696,
+      "interiorGap": 0.06070016939582157
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "index": 1,
+      "tier": "regular",
+      "count": 75,
+      "minHead": 0.8886504333470904,
+      "minFeatures": 0.9977196113424549,
+      "occupancy": 0.9028091473743648,
+      "largestGap": 0.014116318464144552,
+      "interiorGap": 0.0029644268774703555
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "index": 0,
+      "tier": "first",
+      "count": 5,
+      "minHead": 0.9145120528771384,
+      "minFeatures": 1,
+      "occupancy": 0.5921390778533636,
+      "largestGap": 0.07709750566893424,
+      "interiorGap": 0.05895691609977324
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "index": 1,
+      "tier": "regular",
+      "count": 75,
+      "minHead": 0.8877424680148576,
+      "minFeatures": 0.9977196113424549,
+      "occupancy": 0.9062736205593348,
+      "largestGap": 0.012849584278155708,
+      "interiorGap": 0.0031746031746031746
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000,
+        "offline": true
+      },
+      "index": 0,
+      "tier": "first",
+      "count": 5,
+      "minHead": 0.9096034214618973,
+      "minFeatures": 1,
+      "occupancy": 0.594908082871316,
+      "largestGap": 0.07477385468339656,
+      "interiorGap": 0.059819083746717246
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 1000,
+        "offline": true
+      },
+      "index": 1,
+      "tier": "regular",
+      "count": 75,
+      "minHead": 0.8869665703673133,
+      "minFeatures": 0.9975213166765814,
+      "occupancy": 0.9078640210096294,
+      "largestGap": 0.014590020426028597,
+      "interiorGap": 0.003063904289466005
+    }
+  ]
+}

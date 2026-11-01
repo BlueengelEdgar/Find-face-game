@@ -6,11 +6,11 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #5a8d9
 #timer{padding:8px 12px;border-radius:14px;background:#fff9e8;color:#345762;box-shadow:0 2px 0 #ccbfa5;font-size:23px;font-variant-numeric:tabular-nums;min-width:112px;text-align:center}
 #game{width:100%;min-height:0;height:100%;overflow:hidden;border-radius:14px;touch-action:none;background:#eddfc2}canvas{display:block;touch-action:none;filter:saturate(var(--art-saturation))}
 #feedback{margin:0;min-height:14px;line-height:14px;text-align:center;font-size:10px;color:#5b7467;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.targets{padding:6px;background:#fff6e4;border:2px solid #f4e6ce;border-radius:16px;box-shadow:0 2px 0 #b8c7b5;overflow:hidden}
+.targets{padding:6px;background:#fff6e4;border:2px solid #f4e6ce;border-radius:16px;box-shadow:0 2px 0 #b8c7b5;overflow:visible;position:relative;z-index:3}
 .target-heading{display:flex;justify-content:space-between;align-items:center;background:#ebc4b9;color:#674b45;padding:5px 8px;border-radius:8px;font-size:12px}
 #batch{font-size:10px;color:#846860}#targets{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding-top:5px}
 .target{height:clamp(62px,11.5dvh,100px);position:relative;overflow:hidden;display:flex;align-items:end;justify-content:center;border:1px solid #d6c5a7;border-radius:11px;background:linear-gradient(#fff9ee,#ebdcc3);will-change:transform,opacity}
-.target img{width:100%;height:100%;object-fit:contain;object-position:bottom;display:block;filter:saturate(var(--art-saturation));pointer-events:none}.target.complete img{filter:saturate(var(--art-saturation)) brightness(.4)}.target span{position:absolute;inset:0;display:grid;place-items:center;font-size:30px;color:#fff;text-shadow:0 2px 3px #263e35;pointer-events:none}
+.target img{width:100%;height:100%;object-fit:contain;object-position:bottom;display:block;filter:saturate(var(--art-saturation));pointer-events:none}.target.complete img{filter:saturate(var(--art-saturation)) brightness(.4)}.target .completion-check{position:absolute;inset:0;display:grid;place-items:center;font-size:30px;color:#fff;text-shadow:0 2px 3px #263e35;pointer-events:none}
 #result{position:absolute;inset:0;z-index:20;display:grid;place-items:center;overflow:hidden;border-radius:16px;background:#264c49b5;backdrop-filter:blur(3px);padding:18px}
 #result[hidden],#leaderboard[hidden]{display:none}
 .result-card{position:relative;z-index:2;width:100%;max-width:360px;max-height:calc(100dvh - 40px);overflow:auto;text-align:center;background:radial-gradient(ellipse at top,#fff9d9,#fff3df 60%,#f8dfbf);border:3px solid #f6d179;border-radius:25px;padding:23px 17px;box-shadow:0 12px 35px #122e434d}
@@ -25,3 +25,8 @@ button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #5a8d9
 @media(min-width:600px){#app{width:clamp(320px,calc((100dvh - 260px)/1.6 + 20px),480px);max-width:100%}}
 @media(max-height:650px){#app{gap:3px;padding-top:max(5px,env(safe-area-inset-top));padding-bottom:max(5px,env(safe-area-inset-bottom))}.game-header{min-height:42px}h1{font-size:19px}#timer{font-size:20px;padding:6px 9px}.targets{padding:4px}.target-heading{font-size:11px;padding:4px 6px}.target{height:62px}.result-card{padding:16px}.victory-star{font-size:48px;margin-bottom:10px}.result-subtitle{margin:8px 0 14px}#result-time{margin-bottom:15px}}
 @media(prefers-reduced-motion:reduce){#result-title{animation:none}#confetti{display:none}#progress i{transition:none}}
+
+.slot-badge{position:absolute;left:3px;top:3px;display:grid;place-items:center;width:19px;height:19px;border:1px solid #fff9e8;border-radius:50%;background:#426a72;color:white;font-size:12px;line-height:1;box-shadow:0 1px 3px #203f4b66;pointer-events:none}
+.batch-spark{position:absolute;top:30px;font-style:normal;color:#d69e36;z-index:6;pointer-events:none;text-shadow:0 0 6px #fff3a6}
+#opening{position:absolute;inset:72px 10px 160px;z-index:10;display:grid;place-items:center;background:#29453f55;border-radius:14px;text-align:center;touch-action:none}
+#opening[hidden]{display:none}.opening-copy{color:#fff9df;text-shadow:0 3px 0 #294b52,0 0 16px #294b52;padding:10px;width:100%}.opening-copy strong{display:block;font-size:clamp(18px,5vw,25px);font-weight:950}.opening-copy small{display:block;font-size:14px;margin-top:12px}#opening:not([data-step="FIND THE MATCHING FACES!"]) strong{font-size:85px}#opening[data-step="GO!"]{background:transparent}#opening[data-step="GO!"] strong{color:#ffe08d}

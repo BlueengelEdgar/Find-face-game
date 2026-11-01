@@ -1,0 +1,19 @@
+"""Reproducible necessary-area bound; not an occlusion/click acceptance test.
+Needs Pillow/numpy. Reads existing art; never modifies resources/layouts.
+"""
+from PIL import Image
+import numpy as np
+import json
+from pathlib import Path
+masks=[]
+for i in range(150):
+ a=np.array(Image.open(f'public/art/v03/character-{i+1:03}.webp').convert('RGBA'))[:,:,3]
+ anchor=.61 if i==0 else .56
+ masks.append({str(offset):int((a[:int((anchor+offset)*a.shape[0])]>=96).sum()) for offset in [0,.06,.10,.18]})
+report=[]
+for w,h in [(370,594),(300,382),(460,750)]:
+ minimum=w*.175
+ measures={offset:sum(m[offset] for m in masks)*(minimum/288)**2*.85/(w*h) for offset in masks[0]}
+ report.append(dict(wall=[w,h],population=150,minPortraitWidth=minimum,requiredVisibleAreaRatio=measures))
+Path('docs/v05-capacity.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps(report,indent=2))

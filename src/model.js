@@ -15,6 +15,13 @@ export class Round {
     this.pauseReasons=new Set();this.penaltyMs=0;this.finishedAt=null;
     this.transitioning=false;this.batchAdvanced=false;
   }
+  waitForStart(){
+    this.opening=true;this.setPause('opening',true);
+  }
+  start(){
+    if(!this.opening)return false;
+    this.opening=false;this.setPause('opening',false);return true;
+  }
   get targets(){return this.queue.slice(this.offset,this.offset+BATCH_SIZE);}
   get done(){return this.found.size===this.queue.length;}
   get paused(){return this.pauseReasons.size>0;}

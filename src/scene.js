@@ -5,7 +5,7 @@ import { crowdLayout } from './art-layout.js';
 export class CrowdScene extends Phaser.Scene {
   constructor(controller){super('crowd');this.controller=controller;this.gestures=new Set();this.effects=new Map();}
   preload(){
-    for(let id=0;id<10;id++)this.load.image('face-'+id,characterUrl(id));
+    for(let id=0;id<5;id++)this.load.image('face-'+id,characterUrl(id));
     for(const name of BACKGROUNDS)this.load.image('background-'+name,backgroundUrl(name));
     this.load.on('progress',()=>{document.querySelector('#feedback').textContent='正在准备画面…';});
     this.load.on('loaderror',file=>{if(file.key.startsWith('face-'))this.artLoadFailed=true;});

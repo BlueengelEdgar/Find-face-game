@@ -91,3 +91,15 @@ test('both local backgrounds are small raster assets and UI has no population or
 test('formatted time includes penalties without negative output',()=>{
  assert.equal(formatTime(72567),'01:12.5');assert.equal(formatTime(-20),'00:00.0');
 });
+test('opening blocks every pick and freezes clock until GO, start is idempotent',()=>{
+ let now=0;const r=new Round(5,()=>now);r.waitForStart();now=2000;
+ assert.equal(r.elapsed,0);assert.equal(r.pick(r.targets[0]),'blocked');assert.equal(r.penaltyMs,0);
+ assert.equal(r.start(),true);now=2100;assert.equal(r.elapsed,100);assert.equal(r.start(),false);
+ now=2200;assert.equal(r.elapsed,200);assert.equal(r.pick(r.targets[0]),'correct');
+});
+test('GO respects a nested visibility pause and tutorial has only one batch',()=>{
+ let now=0;const r=new Round(5,()=>now);r.waitForStart();r.setPause('hidden',true);now=3000;r.start();
+ assert.equal(r.elapsed,0);assert.equal(r.pick(r.targets[0]),'blocked');now=5000;r.setPause('hidden',false);
+ now=5100;for(const id of r.targets)assert.equal(r.pick(id),'correct');assert.equal(r.done,true);assert.equal(r.elapsed,100);assert.equal(r.transitioning,false);
+ for(const dims of [[370,594],[300,382]]){const p=selectPack(0,...dims);assert.equal(p.count,5);assert.equal(crowdLayout(p,...dims).length,5);}
+});

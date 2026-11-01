@@ -10,17 +10,32 @@ try {
     await new Promise(r=>setTimeout(r,100));
   }
   browser = await chromium.launch({ executablePath: '/usr/bin/chromium', headless: true, args:['--no-sandbox'] });
-  for (const viewport of [{width:390,height:844},{width:320,height:740},{width:768,height:1024},{width:1440,height:1000}]) {
-    const page = await browser.newPage({ viewport });
+  for (const viewport of [{width:390,height:844},{width:320,height:568},{width:375,height:667},{width:768,height:1024},{width:1440,height:1000}]) {
+    const page = await browser.newPage({ viewport, hasTouch: true, isMobile: viewport.width < 600 });
     const errors=[];page.on('pageerror', e=>errors.push(e.message));
     await page.goto('http://127.0.0.1:5173');
     await page.waitForSelector('#targets .target');
+    await page.waitForTimeout(200);
     assert.equal(await page.locator('#targets .target').count(),5);
-    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth));
+    async function visibleUI() {
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth && document.documentElement.scrollHeight <= innerHeight));
+      for(const selector of ['.toolbar','#game','canvas','#targets','.target']) {
+        for(const element of await page.locator(selector).all()) {
+          const b=await element.boundingBox();
+          assert.ok(b && b.y >= 0 && b.y+b.height <= viewport.height+1, selector+' inside viewport');
+        }
+      }
+    }
+    await visibleUI();
+    const frame=await page.locator('#game').boundingBox();
+    const canvasFrame=await page.locator('canvas').boundingBox();
+    assert.ok(canvasFrame.y+canvasFrame.height<=frame.y+frame.height+1,'canvas fits wall');
+    await page.screenshot({path:`/tmp/v02-start-${viewport.width}.png`});
     async function clickFace(id, level) {
       const box=await page.locator('canvas').boundingBox();
-      const p=layout(LEVELS[level])[id];
-      await page.mouse.click(box.x+p.x/390*box.width,box.y+p.y/540*box.height);
+      const dims=await page.locator('canvas').evaluate(c=>({width:c.width,height:c.height}));
+      const p=layout(LEVELS[level],dims.width,dims.height)[id];
+      await page.touchscreen.tap(box.x+p.x/dims.width*box.width,box.y+p.y/dims.height*box.height);
     }
     console.log('Loaded viewport',viewport.width);
     const targets=await page.locator('.target').evaluateAll(cards=>cards.map(c=>Number(c.dataset.id)));
@@ -35,9 +50,22 @@ try {
     await page.click('#pause');
     await clickFace(targets[0],0);
     assert.equal(await page.locator('.target.complete').count(),1);
+    await page.click('#pause');
+    await page.setViewportSize({width:viewport.width,height:viewport.height-80});
+    await page.waitForTimeout(150);
+    assert.equal(await page.locator('.target.complete').count(),1);
+    assert.equal(await page.locator('#pause').textContent(),'继续');
+    await page.setViewportSize(viewport);
+    await page.waitForTimeout(150);
+    await page.click('#pause');
     await page.click('#restart');
     assert.equal(await page.locator('#progress').textContent(),'已找到 0 / 10');
     for (let level=0;level<2;level++) {
+      await visibleUI();
+      const matched=await page.locator('.target img').evaluateAll(images=>images.map(i=>i.src));
+      const { avatarUrl }=await import('../src/avatars.js');
+      const identity=await page.locator('.target').evaluateAll(cards=>cards.map(c=>Number(c.dataset.id)));
+      assert.deepEqual(matched,identity.map(avatarUrl));
       let count=0;
       while(count<LEVELS[level].count) {
         const ids=await page.locator('.target').evaluateAll(cards=>cards.map(c=>Number(c.dataset.id)));
@@ -52,7 +80,7 @@ try {
       // The next timer tick may update the final tenth once.
       assert.match(finalTime,/\d\d:\d\d\.\d/);
       console.log('Completed level',level+1, 'viewport',viewport.width);
-      if(level===0) await page.click('#next');
+      if(level===0) { await page.click('#next'); await page.screenshot({path:`/tmp/v02-dense-${viewport.width}.png`}); }
     }
     assert.deepEqual(errors,[]);
     await page.screenshot({path:`/tmp/find-face-${viewport.width}.png`,fullPage:true});

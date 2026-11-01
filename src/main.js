@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import './style.css';
 import { LEVELS, WIDTH, HEIGHT } from './levels.js';
 import { Round, formatTime } from './model.js';
-import { avatarUrl } from './avatars.js';
+import { characterUrl } from './characters.js';
 import { CrowdScene } from './scene.js';
 const $ = selector => document.querySelector(selector);
 let scene, round, levelIndex = 0;
@@ -13,7 +13,7 @@ function render() {
     const card = document.createElement('div');
     card.className = 'target' + (round.found.has(id) ? ' complete' : '');
     card.dataset.id = id;
-    const img = new Image(); img.src = avatarUrl(id); img.alt = `目标人物 ${id + 1}`;
+    const img = new Image(); img.src = characterUrl(id); img.alt = `目标人物 ${id + 1}`;
     card.append(img);
     if (round.found.has(id)) { const check = document.createElement('span'); check.textContent = '✓'; card.append(check); }
     return card;
@@ -24,7 +24,7 @@ function start() {
   if ($('#result').open) $('#result').close();
   round = new Round(LEVELS[levelIndex].count);
   scene.show(LEVELS[levelIndex]);
-  $('#pause').textContent = '暂停';
+  $('#pause').textContent = 'Ⅱ';
   $('#pause').disabled = false;
   $('#feedback').textContent = '寻找下方的五位人物';
   $('#timer').textContent = formatTime(0);
@@ -34,7 +34,7 @@ function pause() {
   if (!round || round.done) return;
   round.togglePause();
   scene.setPaused(round.paused);
-  $('#pause').textContent = round.paused ? '继续' : '暂停';
+  $('#pause').textContent = round.paused ? '▶' : 'Ⅱ';
 }
 const controller = {
   attach(value) { scene = value; start(); },
@@ -53,7 +53,7 @@ const controller = {
         $('#pause').disabled = true;
         $('#result-time').textContent = `实际用时：${formatTime(round.elapsed)}`;
         $('#ranking').replaceChildren(...['模拟玩家 A — 00:35.2', '模拟玩家 B — 01:12.8', '模拟玩家 C — 02:08.4'].map(text => { const li = document.createElement('li'); li.textContent = text; return li; }));
-        $('#next').hidden = levelIndex === LEVELS.length - 1;
+        $('#next').hidden = true; // Stage 2 awaits visual acceptance; keep 150-person data unchanged.
         $('#result').showModal();
       }
     } else if (status === 'wrong') {
@@ -69,8 +69,14 @@ new Phaser.Game({
 });
 $('#pause').onclick = pause;
 $('#restart').onclick = start;
-$('#level').onchange = event => { levelIndex = Number(event.target.value); start(); };
+$('#level').onchange = event => { if (Number(event.target.value) !== 0) return; levelIndex = 0; start(); };
 $('#again').onclick = start;
-$('#next').onclick = () => { levelIndex++; $('#level').value = String(levelIndex); start(); };
+$('#back').onclick = () => {
+  if (!round) return;
+  if (!round.paused && !round.done) pause();
+  $('#menu').showModal();
+};
+$('#resume').onclick = () => { $('#menu').close(); };
+$('#menu-restart').onclick = () => { $('#menu').close(); start(); };
 document.addEventListener('visibilitychange', () => { if (document.hidden && round && !round.paused && !round.done) pause(); });
 setInterval(() => { if (round) $('#timer').textContent = formatTime(round.elapsed); }, 50);

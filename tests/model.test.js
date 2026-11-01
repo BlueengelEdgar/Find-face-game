@@ -83,3 +83,25 @@ test('SVG identity is deterministic, has no labels and keeps independent traits 
     assert.doesNotMatch(avatarSvg(id),/<text|https?:\/\/(?!www.w3.org)/);
   }
 });
+test('V0.3 first-stage independent artwork identity and reproducible composition', async () => {
+  const { CHARACTERS }=await import('../src/characters.js');
+  const { artLayout }=await import('../src/art-layout.js');
+  const { readFile }=await import('node:fs/promises');
+  const { createHash }=await import('node:crypto');
+  assert.equal(CHARACTERS.length,10);
+  assert.equal(new Set(CHARACTERS.map(c=>c.id)).size,10);
+  const hashes=[];
+  for(const c of CHARACTERS) {
+    const png=await readFile(new URL('../public/'+c.file,import.meta.url));
+    assert.equal(png.toString('hex',0,8),'89504e470d0a1a0a');
+    assert.ok(png.readUInt32BE(16)>=1000 && png.readUInt32BE(20)>=1000,'full resolution independent art');
+    hashes.push(createHash('sha256').update(png).digest('hex'));
+  }
+  assert.equal(new Set(hashes).size,10,'never reuse identical art as different identities');
+  for(const [w,h] of [[300,330],[370,550],[600,750]]) {
+    const points=artLayout(w,h);
+    assert.deepEqual(points,artLayout(w,h));
+    assert.ok(Math.min(...points.map(p=>p.size))>=w*.3,'no tiny icon fallback');
+    for(const p of points)assert.ok(p.x>0 && p.x<w && p.y>0 && p.y<h);
+  }
+});

@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node tests/model.test.js",
-    "test:browser": "node tests/browser.js"
+    "test:browser": "node tests/v03-browser.js"
   },
   "dependencies": {
     "phaser": "3.90.0"

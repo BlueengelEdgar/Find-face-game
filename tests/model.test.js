@@ -51,3 +51,35 @@ test('all 150 placeholder identities have distinct visuals', () => {
   assert.equal(new Set(visuals).size, 150);
 });
 test('time format includes minutes, seconds, tenths', () => assert.equal(formatTime(72567), '01:12.5'));
+test('responsive staggered layouts: bounds, unique centers, protected faces and overlapping silhouettes', async () => {
+  const { faceHit } = await import('../src/levels.js');
+  for (const [width,height] of [[300,260],[355,365],[370,500],[540,700],[540,400]]) {
+    for (const level of LEVELS) {
+      const points=layout(level,width,height);
+      let overlap=0;
+      for(const p of points) {
+        assert.ok(faceHit(p,p.x,p.y));
+        assert.ok(p.x-p.size/2>=0 && p.x+p.size/2<=width);
+        assert.ok(p.y-p.size*1.125/2>=0 && p.y+p.size*1.125/2<=height);
+        for(const q of points) {
+          if(p.id===q.id)continue;
+          assert.equal(faceHit(q,p.x,p.y),false,'each face center belongs only to itself');
+          // Protected face ellipse bounding boxes must not intersect.
+          assert.ok(Math.abs(p.x-q.x)>=(p.size+q.size)*.29 ||
+            Math.abs((p.y-p.size*.035)-(q.y-q.size*.035))>=(p.size+q.size)*.32);
+          if(Math.abs(p.x-q.x)<(p.size+q.size)/2 && Math.abs(p.y-q.y)<(p.size+q.size)*1.125/2)overlap++;
+        }
+      }
+      if(level.count===150 && height>400)assert.ok(overlap>0,'dense silhouettes overlap while faces stay exposed');
+    }
+  }
+});
+test('SVG identity is deterministic, has no labels and keeps independent traits unique', async () => {
+  const { traits }=await import('../src/avatars.js');
+  const all=Array.from({length:150},(_,id)=>traits(id));
+  assert.equal(new Set(all.map(t=>JSON.stringify(t))).size,150);
+  for(let id=0;id<150;id++) {
+    assert.equal(avatarSvg(id),avatarSvg(id));
+    assert.doesNotMatch(avatarSvg(id),/<text|https?:\/\/(?!www.w3.org)/);
+  }
+});

@@ -1,20 +1,36 @@
 import Phaser from 'phaser';
 import { avatarUrl } from './avatars.js';
-import { layout, WIDTH, HEIGHT } from './levels.js';
+import { layout } from './levels.js';
 export class CrowdScene extends Phaser.Scene {
   constructor(controller) { super('crowd'); this.controller = controller; }
   preload() {
     for (let id = 0; id < 150; id++) this.load.svg('face-' + id, avatarUrl(id), { width: 128, height: 144 });
   }
-  create() { this.controller.attach(this); }
+  create() {
+    this.controller.attach(this);
+    const parent = document.querySelector('#game');
+    this.observer = new ResizeObserver(([entry]) => {
+      const width = Math.floor(entry.contentRect.width);
+      const height = Math.floor(entry.contentRect.height);
+      if (width > 0 && height > 0 &&
+          (this.scale.width !== width || this.scale.height !== height)) this.scale.resize(width, height);
+    });
+    this.observer.observe(parent);
+    this.events.once('shutdown', () => this.observer.disconnect());
+    this.scale.on('resize', () => this.controller.resize());
+  }
   show(level) {
+    this.tweens.killAll();
     this.children.removeAll(true);
-    this.cameras.main.setBackgroundColor('#e1e5e4');
+    const { width: WIDTH, height: HEIGHT } = this.scale.gameSize;
+    this.cameras.main.setBackgroundColor('#f1dfbf');
     this.faces = new Map();
-    for (const point of layout(level)) {
+    for (const point of layout(level, WIDTH, HEIGHT)) {
       const face = this.add.image(point.x, point.y, 'face-' + point.id)
-        .setDisplaySize(point.size, point.size * 72 / 64)
-        .setInteractive({ useHandCursor: true });
+        .setDisplaySize(point.size, point.size * 72 / 64).setDepth(point.y / HEIGHT * 100)
+        .setInteractive({ useHandCursor: true,
+          hitArea: new Phaser.Geom.Ellipse(64, 67.52, 74.24, 81.92),
+          hitAreaCallback: Phaser.Geom.Ellipse.Contains });
       face.on('pointerdown', () => this.controller.pick(point.id));
       this.faces.set(point.id, face);
     }

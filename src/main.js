@@ -38,6 +38,12 @@ function pause() {
 }
 const controller = {
   attach(value) { scene = value; start(); },
+  resize() {
+    if (!round) return;
+    scene.show(LEVELS[levelIndex]);
+    round.found.forEach(id => scene.mark(id));
+    scene.setPaused(round.paused);
+  },
   pick(id) {
     const status = round.pick(id);
     if (status === 'correct') {
@@ -58,7 +64,7 @@ const controller = {
 new Phaser.Game({
   type: Phaser.AUTO, parent: 'game', width: WIDTH, height: HEIGHT,
   backgroundColor: '#e1e5e4', scene: new CrowdScene(controller),
-  scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
+  scale: { mode: Phaser.Scale.NONE, autoCenter: Phaser.Scale.CENTER_BOTH },
   render: { antialias: true }, audio: { noAudio: true },
 });
 $('#pause').onclick = pause;
